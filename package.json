@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ACCUiNBio/Nucleus.git"
+    "url": "git+https://github.com/Hsieh-Yu-Hung/Nucleus-Temp.git"
   },
   "author": "",
   "license": "",
   "bugs": {
-    "url": "https://github.com/ACCUiNBio/Nucleus/issues"
+    "url": "https://github.com/Hsieh-Yu-Hung/Nucleus-Temp#issues"
   },
-  "homepage": "https://github.com/ACCUiNBio/Nucleus#readme",
+  "homepage": "https://github.com/Hsieh-Yu-Hung/Nucleus-Temp#readme",
   "dependencies": {
     "babel-runtime": "^6.26.0",
     "minimist": "^1.2.6",
