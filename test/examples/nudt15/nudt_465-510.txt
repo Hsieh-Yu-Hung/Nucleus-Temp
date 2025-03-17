@@ -1,0 +1,22 @@
+Experiment: NUDT15_20240718_acc  Selected Filter: 465-510 (465-510)
+Include	Color	Pos	Name	Cp	Concentration	Standard	Status
+True	65280	A4	wt-5_L			0	
+True	65280	A5	zoe-25ng_L			0	
+True	65280	A6	zoe-25ng_M			0	
+True	65280	A7	wt-5_M			0	
+True	255	B4	mut-5_L	23.88		0	
+True	65280	B5	zoe-50ng_L			0	
+True	65280	B6	zoe-50ng_M			0	
+True	255	B7	mut-5_M	23.91		0	
+True	255	C4	wt+mut-5_L	24.26		0	
+True	65280	C5	zoe-100ng_L			0	
+True	65280	C6	zoe-100ng_M			0	
+True	255	C7	wt+mut-5_M	24.42		0	
+True	65280	D4	ntc_L			0	
+True	255	D5	c/t-25ng_L	25.93		0	
+True	255	D6	c/t-25ng_M	25.84		0	
+True	65280	D7	ntc_M			0	
+True	255	E5	c/t-50ng_L	25.32		0	
+True	255	E6	c/t-50ng_M	25.40		0	
+True	255	F5	c/t-100ng_L	25.51		0	
+True	255	F6	c/t-100ng_M	25.51		0	

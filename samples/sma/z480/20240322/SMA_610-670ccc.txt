@@ -1,0 +1,26 @@
+Experiment: SMA_acc_20240322  Selected Filter: 610-670 (610-670)
+Include	Color	Pos	Name	Cp	Concentration	Standard	Status
+True	255	A3	Sample 3	24.98		0	
+True	255	A4	Sample 4	25.15		0	
+True	255	A5	Sample 5	25.94		0	
+True	255	B3	Sample 15	25.11		0	
+True	255	B4	Sample 16	24.84		0	
+True	255	B5	Sample 17	24.82		0	
+True	255	C3	Sample 27	24.90		0	
+True	255	C4	Sample 28	24.37		0	
+True	255	C5	Sample 29	24.73		0	
+True	255	D3	Sample 39	24.78		0	
+True	255	D4	Sample 40	24.68		0	
+True	255	D5	Sample 41	24.59		0	
+True	255	E3	Sample 51	22.96		0	
+True	255	E4	Sample 52	25.49		0	
+True	65280	E5	Sample 53			0	
+True	255	F3	Sample 63	24.28		0	
+True	255	F4	Sample 64	24.52		0	
+True	65280	F5	Sample 65			0	
+True	255	G3	Sample 75	24.45		0	
+True	255	G4	Sample 76	24.47		0	
+True	65280	G5	Sample 77			0	
+True	255	H3	Sample 87	24.29		0	
+True	255	H4	Sample 88	24.58		0	
+True	65280	H5	Sample 89			0	

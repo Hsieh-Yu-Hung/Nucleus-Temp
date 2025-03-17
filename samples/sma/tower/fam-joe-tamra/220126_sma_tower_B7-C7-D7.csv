@@ -1,0 +1,46 @@
+Title:,
+Date/Time:,2022/1/26,¤W¤È 10:47:23
+Device:,qTOWER3/G,3107D-0279
+Operator:,
+Comments:,
+Colors+Dyes:,Pos,Color Module,Dye,Gain,Meas,Refr
+,1,Blue.470.520.11.3,FAM,5,*,
+,2,Green.515.545.11.2,JOE,5,*,
+,3,Yellow.535.580.11.2,TAMRA,5,*,
+Heated Lid:,100¢XC
+TC Protocol:,steps,scan,¢XC,m:s,goto,loops,delta Temp(¢XC),delta Time (s),ramp (¢XC/s
+,1,,95,03:00,0,0,0,0,8
+,2,,95,00:05,0,0,0,0,6
+,3,*,60,00:30,2,34,0,0,6
+Melt active:,No
+Meas. Repeats:,3
+Color Comp.:,
+
+Well,,Sample name,Sample type,Dye,Gene,Ct,Mean Ct
+D7,,H2O,NTC,FAM,SMN1,No Ct,
+D7,,H2O,NTC,TAMRA,,No Ct,
+D7,,H2O,NTC,JOE,SMN2,No Ct,
+B5,,Sample 1,Unknown,FAM,SMN1,25.14,25.14
+B5,,Sample 1,Unknown,TAMRA,,23.76,23.76
+B5,,Sample 1,Unknown,JOE,SMN2,27.93,27.93
+C5,,Sample 2,Unknown,TAMRA,,23.33,23.33
+C5,,Sample 2,Unknown,JOE,SMN2,25.19,25.19
+C5,,Sample 2,Unknown,FAM,SMN1,25.02,25.02
+D5,,Sample 3,Unknown,FAM,SMN1,23.99,23.99
+D5,,Sample 3,Unknown,JOE,SMN2,28.15,28.15
+D5,,Sample 3,Unknown,TAMRA,,24.4,24.4
+E5,,Sample 4,Unknown,JOE,SMN2,No Ct,
+E5,,Sample 4,Unknown,FAM,SMN1,No Ct,
+E5,,Sample 4,Unknown,TAMRA,,25.23,25.23
+F5,,Sample 5,Unknown,JOE,SMN2,24.98,24.98
+F5,,Sample 5,Unknown,TAMRA,,21.9,21.9
+F5,,Sample 5,Unknown,FAM,SMN1,24.96,24.96
+G5,,Sample 6,Unknown,TAMRA,,23.32,23.32
+G5,,Sample 6,Unknown,JOE,SMN2,27.77,27.77
+G5,,Sample 6,Unknown,FAM,SMN1,No Ct,
+B7,,SC1,Standard,TAMRA,,23.31,23.31
+B7,,SC1,Standard,JOE,SMN2,27.89,27.89
+B7,,SC1,Standard,FAM,SMN1,No Ct,
+C7,,SC2,Standard,TAMRA,,22.29,22.29
+C7,,SC2,Standard,JOE,SMN2,24.98,24.98
+C7,,SC2,Standard,FAM,SMN1,24.11,24.11

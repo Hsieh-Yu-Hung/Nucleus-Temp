@@ -1,0 +1,98 @@
+hd:
+  type: object
+  properties:
+    control:
+      type: object
+      properties:
+        control_id:
+          type: string
+        standard_1:
+          type: object
+          properties:
+            bp:
+              type: integer
+            percentage:
+              type: float
+            status:
+              type: string
+              enumerate:
+                - meet-the-criteria
+                - fail-the-critera
+        standard_2:
+          type: object
+          properties:
+            bp:
+              type: integer
+            percentage:
+              type: float
+            status:
+              type: string
+              enumerate:
+                - meet-the-criteria
+                - fail-the-critera
+    qc:
+      type: object
+      properties:
+        status:
+          type: string
+            enumerate:
+              - meet-the-criteria
+              - fail-the-critera
+    result:
+      type: array
+      items:
+        type: object
+        properties:
+          sampleId:
+            type: string
+          assessment:
+            type: string
+            enumerate:
+              - hd-normal
+              - hd-intermediate
+              - hd-penetrance
+              - hd-full
+              - inconclusive
+              - invalid
+          type:
+            type: array
+            items:
+              type: string
+              enumerate:
+                - hd-normal
+                - hd-intermediate
+                - hd-penetrance
+                - hd-full
+          bp:
+            type: array
+            items:
+              type: integer
+          repeats:
+            type: array
+            items:
+              type: integer
+          rfuRatio:
+            type: float
+          internalQc:
+            type: object
+            properties:
+              bp:
+                type: integer
+              rfu:
+                type: float
+              status:
+                type: string
+                enumerate:
+                  - meet-the-criteria
+                  - fail-the-critera
+          raw:
+            type: array
+            items:
+              type: object
+              properties:
+                bp:
+                  type: integer
+                rfu:
+                  type: float
+                repeats:
+                  type: integer

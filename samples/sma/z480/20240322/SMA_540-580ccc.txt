@@ -1,0 +1,26 @@
+Experiment: SMA_acc_20240322  Selected Filter: 540-580 (540-580)
+Include	Color	Pos	Name	Cp	Concentration	Standard	Status
+True	255	A3	Sample 3	24.50		0	
+True	255	A4	Sample 4	24.68		0	
+True	255	A5	Sample 5	26.60		0	
+True	255	B3	Sample 15	24.37		0	
+True	255	B4	Sample 16	24.77		0	
+True	255	B5	Sample 17	24.77		0	
+True	255	C3	Sample 27	24.87		0	
+True	255	C4	Sample 28	24.35		0	
+True	255	C5	Sample 29	25.28		0	
+True	255	D3	Sample 39	24.32		0	
+True	255	D4	Sample 40	24.97		0	
+True	255	D5	Sample 41	24.54		0	
+True	255	E3	Sample 51	22.90		0	
+True	255	E4	Sample 52	25.50		0	
+True	65280	E5	Sample 53			0	
+True	255	F3	Sample 63	23.97		0	
+True	255	F4	Sample 64	24.53		0	
+True	65280	F5	Sample 65			0	
+True	255	G3	Sample 75	24.79		0	
+True	255	G4	Sample 76	24.22		0	
+True	65280	G5	Sample 77			0	
+True	255	H3	Sample 87	24.13		0	
+True	255	H4	Sample 88	24.30		0	
+True	65280	H5	Sample 89			0	

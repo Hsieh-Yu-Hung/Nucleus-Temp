@@ -1,0 +1,37 @@
+Title:,
+Date/Time:,2022/11/17,�W�� 09:47:41
+Device:,qTOWER3/G,3107D-0321
+Operator:,
+Comments:,
+Colors+Dyes:,Pos,Color Module,Dye,Gain,Meas,Refr
+,1,Blue.470.520.11.3,FAM,5,*,
+,2,Green.515.545.11.2,VIC,5,*,
+,3,Yellow.535.580.11.2,TAMRA,5,,
+,4,Orange.565.605.11.2,ROX,5,*,*
+,5,Red.630.670.11.1,Cy5,5,,
+Heated Lid:,100�XC
+TC Protocol:,steps,scan,�XC,m:s,goto,loops,delta Temp(�XC),delta Time (s),ramp (�XC/s
+,1,,95,03:00,0,0,0,0,8
+,2,,95,00:15,0,0,0,0,6
+,3,*,58.5,00:30,2,39,0,0,6
+Melt active:,No
+Meas. Repeats:,3
+Color Comp.:,
+
+Well,,Sample name,Sample type,Dye,Gene,Ct,Mean Ct
+C3,,1,Unknown,FAM,,No Ct,
+C4,,2,Unknown,FAM,,No Ct,
+C5,,3,Unknown,FAM,,29.42,29.42
+C6,,4,Unknown,FAM,,32.05,32.05
+C7,,5,Unknown,FAM,,28.14,28.14
+C8,,6,Unknown,FAM,,27.26,27.26
+C9,,SC,Positive control,FAM,,26.49,26.49
+C10,,NC,NTC,FAM,,No Ct,
+C3,,1,Unknown,VIC,,29.72,29.72
+C4,,2,Unknown,VIC,,27.7,27.7
+C5,,3,Unknown,VIC,,29.06,29.06
+C6,,4,Unknown,VIC,,29.6,29.6
+C7,,5,Unknown,VIC,,No Ct,
+C8,,6,Unknown,VIC,,No Ct,
+C9,,SC,Positive control,VIC,,37.93,37.93
+C10,,NC,NTC,VIC,,No Ct,

@@ -1,0 +1,10 @@
+Experiment: MTHFR_acc_20240322  Selected Filter: 540-580 (540-580)
+Include	Color	Pos	Name	Cp	Concentration	Standard	Status
+True	255	A3	Sample 3	26.33		0	
+True	255	B3	Sample 15	27.13		0	
+True	255	C3	Sample 27	26.41		0	
+True	255	D3	Sample 39	26.24		0	
+True	255	E3	Sample 51	25.74		0	
+True	255	F3	Sample 63	28.69		0	
+True	255	G3	Sample 75	24.13		0	
+True	65280	H3	Sample 87			0	

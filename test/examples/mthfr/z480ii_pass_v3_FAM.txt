@@ -1,0 +1,6 @@
+Experiment: mthfr_20240529  Selected Filter: FAM (465-510)
+Include	Color	Pos	Name	Cp	Concentration	Standard	Status
+True	65280	A1	1			0	
+True	255	A2	5	26.24		0	
+True	255	A3	sc	26.93		0	
+True	65280	A4	ntc			0	

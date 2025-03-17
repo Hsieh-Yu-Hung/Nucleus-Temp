@@ -1,0 +1,27 @@
+Experiment: SMA_20240718_acc  Selected Filter: 540-580 (540-580)
+Include	Color	Pos	Name	Cp	Concentration	Standard	Status
+True	65280	A5	004494-Z			0	
+True	16711680	A6	004494	26.70		0	? - Detector Call uncertain
+True	255	A7	Zoe	25.10		0	
+True	65280	A8	NTC			0	
+True	255	B5	010856-Z	24.55		0	
+True	255	B6	010856	24.81		0	
+True	255	B7	SMA22003	25.55		0	
+True	255	C5	010863-Z	25.00		0	
+True	255	C6	010863	25.68		0	
+True	255	C7	SC1-7/4	26.19		0	
+True	255	D5	012500-Z	25.18		0	
+True	255	D6	012500	25.36		0	
+True	255	D7	SC2-7/4	24.99		0	
+True	65280	E5	014229-Z			0	
+True	65280	E6	014229			0	
+True	255	E7	SC1-7/18	26.28		0	
+True	255	F5	Doris-Z	26.27		0	
+True	255	F6	Lin-z	24.68		0	
+True	255	F7	SC2-7/18	24.74		0	
+True	255	G5	Doris-Z	25.42		0	
+True	255	G6	Doris	25.50		0	
+True	255	G7	SC1-7/18-Zoe	25.88		0	
+True	255	H5	177800-Z	24.41		0	
+True	255	H6	177800	24.79		0	
+True	255	H7	SC2-7/18-Zoe	25.38		0	

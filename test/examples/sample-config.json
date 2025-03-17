@@ -1,0 +1,2372 @@
+{
+  "apoe": [
+    {
+      "object": "Core refactor testing",
+      "path": "/examples/apoe/core-refactor",
+      "reagent": "accuinApoe1",
+      "instrument": "qsep100",
+      "control": {
+        "qc": "meet-the-criteria",
+        "standard1": {
+          "files": [
+            "SC1/20240808-APE_APE-E2-SC1_S1A01_R1.xlsx",
+            "SC1/20240808-APE_APE-E3-SC1_S1A02_R1.xlsx",
+            "SC1/20240808-APE_APE-E4-SC1_S1A03_R1.xlsx"
+          ],
+          "status": "meet-the-criteria",
+          "type": "e2/e3"
+        },
+        "standard2": {
+          "files": [
+            "SC2/20240808-APE_APE-E2-SC2_S1A04_R1.xlsx",
+            "SC2/20240808-APE_APE-E3-SC2_S1A05_R1.xlsx",
+            "SC2/20240808-APE_APE-E4-SC2_S1A06_R1.xlsx"
+          ],
+          "status": "meet-the-criteria",
+          "type": "e3/e4"
+        }
+      },
+      "sample": [
+        {
+          "sampleId": "APE E2/E3",
+          "files": [
+            "20240807-APE_APE-E2-A16R3_S1D01_R1.xlsx",
+            "20240807-APE_APE-E3-A16R3_S1D02_R1.xlsx",
+            "20240807-APE_APE-E4-A16R3_S1D03_R1.xlsx"
+          ],
+          "type": "e2/e3",
+          "assessment": "low-risk"
+        },
+        {
+          "sampleId": "A1",
+          "files": [
+            "20240805-APE_APE-E2-A1_S1A07_R1.xlsx",
+            "20240805-APE_APE-E3-A1_S1A08_R1.xlsx",
+            "20240805-APE_APE-E4-A1_S1A09_R1.xlsx"
+          ],
+          "type": "e2/e4",
+          "assessment": "high-risk"
+        },
+        {
+          "sampleId": "A7",
+          "files": [
+            "20240805-APE_APE-E2-A7_S1D01_R1.xlsx",
+            "20240805-APE_APE-E3-A7_S1D02_R1.xlsx",
+            "20240805-APE_APE-E4-A7_S1D03_R1.xlsx"
+          ],
+          "type": "e3/e4",
+          "assessment": "high-risk"
+        },
+        {
+          "sampleId": "A13",
+          "files": [
+            "20240805-APE_APE-E2-A13_S1F07_R1.xlsx",
+            "20240805-APE_APE-E3-A13_S1F08_R1.xlsx",
+            "20240805-APE_APE-E4-A13_S1F09_R1.xlsx"
+          ],
+          "type": "e2/e2",
+          "assessment": "low-risk"
+        }
+      ]
+    },
+    {
+      "object": "Meet criteria testing",
+      "path": "/examples/apoe/meet-the-criteria",
+      "reagent": "accuinApoe1",
+      "instrument": "qsep100",
+      "control": {
+        "qc": "meet-the-criteria",
+        "standard1": {
+          "files": [
+            "SC1/20240320_E2-A_E2E3 control1_S1C11_R1.xlsx",
+            "SC1/20240320_E3-A_E2E3 control1_S1D11_R1.xlsx",
+            "SC1/20240320_E4-A_E2E3 control1_S1E11_R1.xlsx"
+          ],
+          "status": "meet-the-criteria",
+          "type": "e2/e3"
+        },
+        "standard2": {
+          "files": [
+            "SC2/20240320_E2-A_E3E4 control2_S1C10_R1.xlsx",
+            "SC2/20240320_E3-A_E3E4 control2_S1D10_R1.xlsx",
+            "SC2/20240320_E4-A_E3E4 control2_S1E10_R1.xlsx"
+          ],
+          "status": "meet-the-criteria",
+          "type": "e3/e4"
+        }
+      },
+      "sample": [
+        {
+          "sampleId": "E3E3 Z",
+          "files": [
+            "20240320_E2-A_E3E3_S1C09_R1.xlsx",
+            "20240320_E3-A_E3E3_S1D09_R1.xlsx",
+            "20240320_E4-A_E3E3_S1E09_R1.xlsx"
+          ],
+          "type": "e3/e3",
+          "assessment": "normal-risk"
+        },
+        {
+          "sampleId": "0507 invalid",
+          "files": [
+            "20240507_E2_ACC017-0554_S1B10_R1.xlsx",
+            "20240507_E3_ACC017-0554_S1C10_R1.xlsx",
+            "20240507_E4_ACC017-0554_S1D10_R1.xlsx"
+          ],
+          "type": "",
+          "assessment": "invalid"
+        },
+        {
+          "sampleId": "0507 E3E4 09",
+          "files": [
+            "20240507_E2_1305020038_S1B09_R1.xlsx",
+            "20240507_E3_1305020038_S1C09_R1.xlsx",
+            "20240507_E4_1305020038_S1D09_R1.xlsx"
+          ],
+          "type": "e3/e4",
+          "assessment": "high-risk"
+        },
+        {
+          "sampleId": "0507 E2E4 06",
+          "files": [
+            "20240507_E2_ACC000-0048_S1B06_R1.xlsx",
+            "20240507_E3_ACC000-0048_S1C06_R1.xlsx",
+            "20240507_E4_ACC000-0048_S1D06_R1.xlsx"
+          ],
+          "type": "e2/e4",
+          "assessment": "high-risk"
+        },
+        {
+          "sampleId": "0507 E3E3 01",
+          "files": [
+            "20240507_E2_304260002_S1B01_R1.xlsx",
+            "20240507_E3_304260002_S1C01_R1.xlsx",
+            "20240507_E4_304260002_S1D01_R1.xlsx"
+          ],
+          "type": "e3/e3",
+          "assessment": "normal-risk"
+        },
+        {
+          "sampleId": "0507 E3E3 02",
+          "files": [
+            "20240507_E2_36104270060_S1B02_R1.xlsx",
+            "20240507_E3_36104270060_S1C02_R1.xlsx",
+            "20240507_E4_36104270060_S1D02_R1.xlsx"
+          ],
+          "type": "e3/e3",
+          "assessment": "normal-risk"
+        },
+        {
+          "sampleId": "0507 E3E3 03",
+          "files": [
+            "20240507_E2_304300001_S1B03_R1.xlsx",
+            "20240507_E3_304300001_S1C03_R1.xlsx",
+            "20240507_E4_304300001_S1D03_R1.xlsx"
+          ],
+          "type": "e3/e3",
+          "assessment": "normal-risk"
+        },
+        {
+          "sampleId": "0507 E3E3 04",
+          "files": [
+            "20240507_E2_000098_S1B04_R1.xlsx",
+            "20240507_E3_000098_S1C04_R1.xlsx",
+            "20240507_E4_000098_S1D04_R1.xlsx"
+          ],
+          "type": "e3/e3",
+          "assessment": "normal-risk"
+        },
+        {
+          "sampleId": "0507 E3E3 05",
+          "files": [
+            "20240507_E2_ACC000-0030_S1B05_R1.xlsx",
+            "20240507_E3_ACC000-0030_S1C05_R1.xlsx",
+            "20240507_E4_ACC000-0030_S1D05_R1.xlsx"
+          ],
+          "type": "e3/e3",
+          "assessment": "normal-risk"
+        },
+        {
+          "sampleId": "0507 E3E3 07",
+          "files": [
+            "20240507_E2_305030001_S1B07_R1.xlsx",
+            "20240507_E3_305030001_S1C07_R1.xlsx",
+            "20240507_E4_305030001_S1D07_R1.xlsx"
+          ],
+          "type": "e3/e3",
+          "assessment": "normal-risk"
+        },
+        {
+          "sampleId": "0507 E3E3 08",
+          "files": [
+            "20240507_E2_305030002_S1B08_R1.xlsx",
+            "20240507_E3_305030002_S1C08_R1.xlsx",
+            "20240507_E4_305030002_S1D08_R1.xlsx"
+          ],
+          "type": "e3/e3",
+          "assessment": "normal-risk"
+        }
+      ]
+    },
+    {
+      "object": "Controversial sample testing",
+      "path": "/examples/apoe/controversial-sample",
+      "reagent": "accuinApoe1",
+      "instrument": "qsep100",
+      "control": {
+        "qc": "meet-the-criteria",
+        "standard1": {
+          "files": [
+            "20240320_SC1-A_E2_S1C11_R1.xlsx",
+            "20240320_SC1-A_E3_S1D11_R1.xlsx",
+            "20240320_SC1-A_E4_S1E11_R1.xlsx"
+          ],
+          "status": "meet-the-criteria",
+          "type": "e2/e3"
+        },
+        "standard2": {
+          "files": [
+            "20240320_SC2-A_E2_S1C10_R1.xlsx",
+            "20240320_SC2-A_E3_S1D10_R1.xlsx",
+            "20240320_SC2-A_E4_S1E10_R1.xlsx"
+          ],
+          "status": "meet-the-criteria",
+          "type": "e3/e4"
+        }
+      },
+      "sample": [
+        {
+          "sampleId": "E3E4 APE",
+          "files": [
+            "20240812-APE_E2-A2_S1A05_R1.xlsx",
+            "20240812-APE_E3-A2_S1C01_R1.xlsx",
+            "20240812-APE_E4-A2_S1C09_R1.xlsx"
+          ],
+          "type": "e3/e4",
+          "assessment": "high-risk"
+        }
+      ]
+    }
+  ],
+  "fx": [
+    {
+      "object": "Meet criteria testing",
+      "path": "/examples/fx/v2/meet-criteria-testing",
+      "reagent": "accuinFx2",
+      "instrument": "qsep100",
+      "control": {
+        "filename": "control_fx_pass.xlsx",
+        "qc": "Meet the criteria",
+        "linear": [
+          [
+            -1,
+            -93.51
+          ],
+          [
+            1200,
+            338.85
+          ]
+        ]
+      },
+      "sample": [
+        {
+          "filename": "sample_female_normal_intermediate.xlsx",
+          "gender": "female",
+          "assessment": "Normal/Intermediate",
+          "positionNum": 2
+        },
+        {
+          "filename": "sample_female_normal_premutation.xlsx",
+          "gender": "female",
+          "assessment": "Normal/Premutation",
+          "positionNum": 2
+        },
+        {
+          "filename": "sample_female_normal.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 2
+        },
+        {
+          "filename": "sample_female_normal_one_peak.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 1
+        },
+        {
+          "filename": "sample_invalid.xlsx",
+          "gender": "-",
+          "assessment": "Invalid",
+          "positionNum": 0
+        },
+        {
+          "filename": "sample_male_premutation.xlsx",
+          "gender": "male",
+          "assessment": "Premutation",
+          "positionNum": 1
+        }
+      ]
+    },
+    {
+      "object": "Fail criteria testing",
+      "path": "/examples/fx/v2/fail-criteria-testing",
+      "reagent": "accuinFx2",
+      "instrument": "qsep100",
+      "control": {
+        "filename": "control_fx_failed.xlsx",
+        "qc": "Fail the criteria",
+        "linear": [
+          [
+            null,
+            null
+          ],
+          [
+            null,
+            null
+          ]
+        ]
+      },
+      "sample": [
+        {
+          "filename": "sample_female_normal_intermediate.xlsx",
+          "gender": "-",
+          "assessment": "Inconclusive",
+          "positionNum": 0
+        },
+        {
+          "filename": "sample_female_normal_premutation.xlsx",
+          "gender": "-",
+          "assessment": "Inconclusive",
+          "positionNum": 0
+        },
+        {
+          "filename": "sample_female_normal.xlsx",
+          "gender": "-",
+          "assessment": "Inconclusive",
+          "positionNum": 0
+        },
+        {
+          "filename": "sample_female_normal_one_peak.xlsx",
+          "gender": "-",
+          "assessment": "Inconclusive",
+          "positionNum": 0
+        },
+        {
+          "filename": "sample_invalid.xlsx",
+          "gender": "-",
+          "assessment": "Inconclusive",
+          "positionNum": 0
+        },
+        {
+          "filename": "sample_male_premutation.xlsx",
+          "gender": "-",
+          "assessment": "Inconclusive",
+          "positionNum": 0
+        }
+      ]
+    },
+    {
+      "object": "NEWCL unoptimized sample testing (edited gender peak)",
+      "path": "/examples/fx/v2/edited-newcl-unoptimized",
+      "reagent": "accuinFx2",
+      "instrument": "qsep100",
+      "control": {
+        "filename": "FX-SC-Dilute_S1A07_R1.xlsx",
+        "qc": "Meet the criteria",
+        "linear": [
+          [
+            -1,
+            -77.76
+          ],
+          [
+            1200,
+            306.56
+          ]
+        ]
+      },
+      "sample": [
+        {
+          "filename": "FX-test_S2A01_R1.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 1
+        },
+        {
+          "filename": "FX-test_S2A02_R1.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 1
+        },
+        {
+          "filename": "FX-test_S2A03_R1.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 2
+        },
+        {
+          "filename": "FX-test_S2A04_R1.xlsx",
+          "gender": "female",
+          "assessment": "Normal/Premutation",
+          "positionNum": 2
+        },
+        {
+          "filename": "FX-test_S2A05_R1.xlsx",
+          "gender": "female",
+          "assessment": "Normal/Premutation",
+          "positionNum": 2
+        },
+        {
+          "filename": "FX-test_S2A06_R1.xlsx",
+          "gender": "female",
+          "assessment": "Normal/Premutation",
+          "positionNum": 2
+        }
+      ]
+    },
+    {
+      "object": "2021/11/18 sample testing",
+      "path": "/examples/fx/v2/1118-testing",
+      "reagent": "accuinFx2",
+      "instrument": "qsep100",
+      "control": {
+        "filename": "standard_1118.xlsx",
+        "qc": "Meet the criteria",
+        "linear": [
+          [
+            -1,
+            -93.51
+          ],
+          [
+            1200,
+            338.85
+          ]
+        ]
+      },
+      "sample": [
+        {
+          "filename": "sample3_xx_29_30.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 1
+        },
+        {
+          "filename": "sample6_xx_29_46.xlsx",
+          "gender": "female",
+          "assessment": "Normal/Intermediate",
+          "positionNum": 2
+        },
+        {
+          "filename": "sample12_xx_29_55.xlsx",
+          "gender": "female",
+          "assessment": "Normal/Premutation",
+          "positionNum": 2
+        },
+        {
+          "filename": "sample17_xx_30_30.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 1
+        },
+        {
+          "filename": "sample23_xx_30_38.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 2
+        },
+        {
+          "filename": "sample25_xx_29_30.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 1
+        },
+        {
+          "filename": "sample28_xx_33_38.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 2
+        }
+      ]
+    },
+    {
+      "object": "2021/11/19 sample testing",
+      "path": "/examples/fx/v2/1119-testing",
+      "reagent": "accuinFx2",
+      "instrument": "qsep100",
+      "control": {
+        "filename": "standard_1119_0.5.xlsx",
+        "qc": "Meet the criteria",
+        "linear": [
+          [
+            -1,
+            -74.88
+          ],
+          [
+            1200,
+            309.44
+          ]
+        ]
+      },
+      "sample": [
+        {
+          "filename": "sample4_xx_29_33.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 2
+        },
+        {
+          "filename": "sample7_xx_29_48.xlsx",
+          "gender": "female",
+          "assessment": "Normal/Intermediate",
+          "positionNum": 2
+        },
+        {
+          "filename": "sample8_xx_30_37.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 2
+        },
+        {
+          "filename": "sample19_xx_29_29.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 1
+        },
+        {
+          "filename": "sample26_xx_29_44.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 2
+        }
+      ]
+    },
+    {
+      "object": "2021/11/22 sample testing",
+      "path": "/examples/fx/v2/1122-testing",
+      "reagent": "accuinFx2",
+      "instrument": "qsep100",
+      "control": {
+        "filename": "standard_1122_v2_condition0.16.xlsx",
+        "qc": "Meet the criteria",
+        "linear": [
+          [
+            -1,
+            -91.98
+          ],
+          [
+            1200,
+            340.38
+          ]
+        ]
+      },
+      "sample": [
+        {
+          "filename": "sample5_xx_29_34.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 2
+        },
+        {
+          "filename": "sample9_xx_30_52.xlsx",
+          "gender": "female",
+          "assessment": "Normal/Intermediate",
+          "positionNum": 2
+        },
+        {
+          "filename": "sample14_xx_25_30.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 2
+        },
+        {
+          "filename": "sample15_xx_19_37.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 2
+        },
+        {
+          "filename": "sample21_xx_29_30.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 1
+        }
+      ]
+    },
+    {
+      "object": "2021/11/24 sample testing",
+      "path": "/examples/fx/v2/1124-testing",
+      "reagent": "accuinFx2",
+      "instrument": "qsep100",
+      "control": {
+        "filename": "standard_1124_v2_condition0.1.xlsx",
+        "qc": "Meet the criteria",
+        "linear": [
+          [
+            -1,
+            -99.81
+          ],
+          [
+            1200,
+            356.57
+          ]
+        ]
+      },
+      "sample": [
+        {
+          "filename": "sample1_xx_25_29.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 2
+        },
+        {
+          "filename": "sample2_xx_29_29.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 1
+        },
+        {
+          "filename": "sample11_xx_37_41.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 2
+        }
+      ]
+    },
+    {
+      "object": "2021/11/30 sample testing",
+      "path": "/examples/fx/v2/1130-testing",
+      "reagent": "accuinFx2",
+      "instrument": "qsep100",
+      "control": {
+        "filename": "standard_1130_v2_condition0.05.xlsx",
+        "qc": "Meet the criteria",
+        "linear": [
+          [
+            -1,
+            -84.42
+          ],
+          [
+            1200,
+            323.92
+          ]
+        ]
+      },
+      "sample": [
+        {
+          "filename": "sample07120_xx_22_31.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 2
+        },
+        {
+          "filename": "sample07122_xx_33_113.xlsx",
+          "gender": "female",
+          "assessment": "Normal/Premutation",
+          "positionNum": 2
+        },
+        {
+          "filename": "sample07168_xx_38_346.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 1,
+          "NOTE": "Limitation of lab techique (No 346 repeats peak)"
+        },
+        {
+          "filename": "sample07174_xy_144.xlsx",
+          "gender": "male",
+          "assessment": "Premutation",
+          "positionNum": 1
+        }
+      ]
+    },
+    {
+      "object": "2022/10/28 NEWCL sample testing",
+      "path": "/examples/fx/v2/1028-newcl-testing",
+      "reagent": "accuinFx2",
+      "instrument": "qsep100",
+      "control": {
+        "filename": "FX-SC_S1A12_R1.xlsx",
+        "qc": "Meet the criteria",
+        "linear": [
+          [
+            -1,
+            -85.7
+          ],
+          [
+            1200,
+            322.64
+          ]
+        ]
+      },
+      "sample": [
+        {
+          "filename": "FX_S2A01_R1.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 1
+        },
+        {
+          "filename": "FX_S2A02_R1.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 1
+        },
+        {
+          "filename": "FX_S2A03_R1.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 1
+        },
+        {
+          "filename": "FX_S2A04_R1.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 2
+        },
+        {
+          "filename": "FX_S2A05_R1.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 1
+        },
+        {
+          "filename": "FX_S2A06_R1.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 1
+        },
+        {
+          "filename": "FX_S2A07_R1.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 1
+        },
+        {
+          "filename": "FX_S2A08_R1.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 1
+        },
+        {
+          "filename": "FX_S2A09_R1.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 2
+        },
+        {
+          "filename": "FX_S2A10_R1.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 1
+        },
+        {
+          "filename": "FX_S2A11_R1.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 1
+        }
+      ]
+    },
+    {
+      "object": "Meet criteria testing",
+      "path": "/examples/fx/v1/meet-criteria-testing",
+      "reagent": "accuinFx1",
+      "instrument": "qsep100",
+      "control": {
+        "filename": "control_fx_pass_edited.xlsx",
+        "qc": "Meet the criteria",
+        "linear": [
+          [
+            -1,
+            -77.33
+          ],
+          [
+            1200,
+            306.99
+          ]
+        ]
+      },
+      "sample": [
+        {
+          "filename": "sample_female_normal_intermediate.xlsx",
+          "gender": "female",
+          "assessment": "Normal/Intermediate",
+          "positionNum": 2
+        },
+        {
+          "filename": "sample_female_normal_premutation.xlsx",
+          "gender": "female",
+          "assessment": "Normal/Premutation",
+          "positionNum": 2
+        },
+        {
+          "filename": "sample_female_normal.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 2
+        },
+        {
+          "filename": "sample_female_normal_one_peak.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 1
+        },
+        {
+          "filename": "sample_invalid.xlsx",
+          "gender": "-",
+          "assessment": "Invalid",
+          "positionNum": 0
+        },
+        {
+          "filename": "sample_male_premutation.xlsx",
+          "gender": "male",
+          "assessment": "Premutation",
+          "positionNum": 1
+        }
+      ]
+    },
+    {
+      "object": "Fail criteria testing",
+      "path": "/examples/fx/v1/fail-criteria-testing",
+      "reagent": "accuinFx1",
+      "instrument": "qsep100",
+      "control": {
+        "filename": "control_fx_failed_edited.xlsx",
+        "qc": "Fail the criteria",
+        "linear": [
+          [
+            null,
+            null
+          ],
+          [
+            null,
+            null
+          ]
+        ]
+      },
+      "sample": [
+        {
+          "filename": "sample_female_normal_intermediate.xlsx",
+          "gender": "-",
+          "assessment": "Inconclusive",
+          "positionNum": 0
+        },
+        {
+          "filename": "sample_female_normal_premutation.xlsx",
+          "gender": "-",
+          "assessment": "Inconclusive",
+          "positionNum": 0
+        },
+        {
+          "filename": "sample_female_normal.xlsx",
+          "gender": "-",
+          "assessment": "Inconclusive",
+          "positionNum": 0
+        },
+        {
+          "filename": "sample_female_normal_one_peak.xlsx",
+          "gender": "-",
+          "assessment": "Inconclusive",
+          "positionNum": 0
+        },
+        {
+          "filename": "sample_invalid.xlsx",
+          "gender": "-",
+          "assessment": "Inconclusive",
+          "positionNum": 0
+        },
+        {
+          "filename": "sample_male_premutation.xlsx",
+          "gender": "-",
+          "assessment": "Inconclusive",
+          "positionNum": 0
+        }
+      ]
+    },
+    {
+      "object": "NEWCL unoptimized sample testing (edited gender peak)",
+      "path": "/examples/fx/v1/edited-newcl-unoptimized",
+      "reagent": "accuinFx1",
+      "instrument": "qsep100",
+      "control": {
+        "filename": "FX-SC-Dilute_S1A07_R1_edited.xlsx",
+        "qc": "Meet the criteria",
+        "linear": [
+          [
+            -1,
+            -69.97
+          ],
+          [
+            1200,
+            290.33
+          ]
+        ]
+      },
+      "sample": [
+        {
+          "filename": "FX-test_S2A01_R1.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 1
+        },
+        {
+          "filename": "FX-test_S2A02_R1.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 1
+        },
+        {
+          "filename": "FX-test_S2A03_R1.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 2
+        },
+        {
+          "filename": "FX-test_S2A04_R1.xlsx",
+          "gender": "female",
+          "assessment": "Normal/Premutation",
+          "positionNum": 2
+        },
+        {
+          "filename": "FX-test_S2A05_R1.xlsx",
+          "gender": "female",
+          "assessment": "Normal/Premutation",
+          "positionNum": 2
+        },
+        {
+          "filename": "FX-test_S2A06_R1.xlsx",
+          "gender": "female",
+          "assessment": "Normal/Premutation",
+          "positionNum": 2
+        }
+      ]
+    },
+    {
+      "object": "2021/11/18 sample testing",
+      "path": "/examples/fx/v1/1118-testing",
+      "reagent": "accuinFx1",
+      "instrument": "qsep100",
+      "control": {
+        "filename": "standard_1118_edited.xlsx",
+        "qc": "Meet the criteria",
+        "linear": [
+          [
+            -1,
+            -77.33
+          ],
+          [
+            1200,
+            306.99
+          ]
+        ]
+      },
+      "sample": [
+        {
+          "filename": "sample3_xx_29_30.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 1
+        },
+        {
+          "filename": "sample6_xx_29_46.xlsx",
+          "gender": "female",
+          "assessment": "Normal/Intermediate",
+          "positionNum": 2
+        },
+        {
+          "filename": "sample12_xx_29_55.xlsx",
+          "gender": "female",
+          "assessment": "Normal/Premutation",
+          "positionNum": 2
+        },
+        {
+          "filename": "sample17_xx_30_30.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 1
+        },
+        {
+          "filename": "sample23_xx_30_38.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 2
+        },
+        {
+          "filename": "sample25_xx_29_30.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 1
+        },
+        {
+          "filename": "sample28_xx_33_38.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 2
+        }
+      ]
+    },
+    {
+      "object": "2021/11/19 sample testing",
+      "path": "/examples/fx/v1/1119-testing",
+      "reagent": "accuinFx1",
+      "instrument": "qsep100",
+      "control": {
+        "filename": "standard_1119_0.5.xlsx",
+        "qc": "Meet the criteria",
+        "linear": [
+          [
+            -1,
+            -75.09
+          ],
+          [
+            1200,
+            309.23
+          ]
+        ]
+      },
+      "sample": [
+        {
+          "filename": "sample4_xx_29_33.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 2
+        },
+        {
+          "filename": "sample7_xx_29_48.xlsx",
+          "gender": "female",
+          "assessment": "Normal/Intermediate",
+          "positionNum": 2
+        },
+        {
+          "filename": "sample8_xx_30_37.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 2
+        },
+        {
+          "filename": "sample19_xx_29_29.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 1
+        },
+        {
+          "filename": "sample26_xx_29_44.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 2
+        }
+      ]
+    },
+    {
+      "object": "2021/11/22 sample testing",
+      "path": "/examples/fx/v1/1122-testing",
+      "reagent": "accuinFx1",
+      "instrument": "qsep100",
+      "control": {
+        "filename": "standard_1122_v2_condition0.16_edited.xlsx",
+        "qc": "Meet the criteria",
+        "linear": [
+          [
+            -1,
+            -72.22
+          ],
+          [
+            1200,
+            300.09
+          ]
+        ]
+      },
+      "sample": [
+        {
+          "filename": "sample5_xx_29_34.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 2
+        },
+        {
+          "filename": "sample9_xx_30_52.xlsx",
+          "gender": "female",
+          "assessment": "Normal/Intermediate",
+          "positionNum": 2
+        },
+        {
+          "filename": "sample14_xx_25_30.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 2
+        },
+        {
+          "filename": "sample15_xx_19_37.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 2
+        },
+        {
+          "filename": "sample21_xx_29_30.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 1
+        }
+      ]
+    },
+    {
+      "object": "2021/11/24 sample testing",
+      "path": "/examples/fx/v1/1124-testing",
+      "reagent": "accuinFx1",
+      "instrument": "qsep100",
+      "control": {
+        "filename": "standard_1124_v2_condition0.1_edited.xlsx",
+        "qc": "Meet the criteria",
+        "linear": [
+          [
+            -1,
+            -76.59
+          ],
+          [
+            1200,
+            307.73
+          ]
+        ]
+      },
+      "sample": [
+        {
+          "filename": "sample1_xx_25_29.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 2
+        },
+        {
+          "filename": "sample2_xx_29_29.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 1
+        },
+        {
+          "filename": "sample11_xx_37_41.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 2
+        }
+      ]
+    },
+    {
+      "object": "2021/11/30 sample testing",
+      "path": "/examples/fx/v1/1130-testing",
+      "reagent": "accuinFx1",
+      "instrument": "qsep100",
+      "control": {
+        "filename": "standard_1130_v2_condition0.05_edited.xlsx",
+        "qc": "Meet the criteria",
+        "linear": [
+          [
+            -1,
+            -72.01
+          ],
+          [
+            1200,
+            300.3
+          ]
+        ]
+      },
+      "sample": [
+        {
+          "filename": "sample07120_xx_22_31.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 2
+        },
+        {
+          "filename": "sample07122_xx_33_113.xlsx",
+          "gender": "female",
+          "assessment": "Normal/Premutation",
+          "positionNum": 2
+        },
+        {
+          "filename": "sample07168_xx_38_346.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 1,
+          "NOTE": "Limitation of lab techique (No 346 repeats peak)"
+        },
+        {
+          "filename": "sample07174_xy_144.xlsx",
+          "gender": "male",
+          "assessment": "Premutation",
+          "positionNum": 1
+        }
+      ]
+    },
+    {
+      "object": "2022/10/28 NEWCL sample testing",
+      "path": "/examples/fx/v1/1028-newcl-testing",
+      "reagent": "accuinFx1",
+      "instrument": "qsep100",
+      "control": {
+        "filename": "FX-SC_S1A12_R1_edited.xlsx",
+        "qc": "Meet the criteria",
+        "linear": [
+          [
+            -1,
+            -77.65
+          ],
+          [
+            1200,
+            306.67
+          ]
+        ]
+      },
+      "sample": [
+        {
+          "filename": "FX_S2A01_R1.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 1
+        },
+        {
+          "filename": "FX_S2A02_R1.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 1
+        },
+        {
+          "filename": "FX_S2A03_R1.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 1
+        },
+        {
+          "filename": "FX_S2A04_R1.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 2
+        },
+        {
+          "filename": "FX_S2A05_R1.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 1
+        },
+        {
+          "filename": "FX_S2A06_R1.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 1
+        },
+        {
+          "filename": "FX_S2A07_R1.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 1
+        },
+        {
+          "filename": "FX_S2A08_R1.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 1
+        },
+        {
+          "filename": "FX_S2A09_R1.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 2
+        },
+        {
+          "filename": "FX_S2A10_R1.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 1
+        },
+        {
+          "filename": "FX_S2A11_R1.xlsx",
+          "gender": "female",
+          "assessment": "Normal",
+          "positionNum": 1
+        }
+      ]
+    }
+  ],
+  "hd": [
+    {
+      "object": "2022/01/07 sample testing",
+      "path": "/examples/hd/0107-testing",
+      "reagent": "accuinHD1",
+      "instrument": "qsep100",
+      "control": {
+        "filename": "0317_ctrl.xlsx",
+        "qc": "meet-the-criteria",
+        "standard1": {
+          "bp": 117,
+          "status": "meet-the-criteria"
+        },
+        "standard2": {
+          "bp": 190,
+          "status": "meet-the-criteria"
+        }
+      },
+      "sample": [
+        {
+          "filename": "sample蔡.xlsx",
+          "internalQc": {
+            "bp": 465,
+            "rfu": 9.63,
+            "status": "meet-the-criteria"
+          },
+          "assessment": "hd-normal",
+          "type": [
+            "hd-normal",
+            "hd-normal"
+          ],
+          "bp": [
+            119
+          ],
+          "repeats": [
+            17
+          ]
+        },
+        {
+          "filename": "sample郭.xlsx",
+          "internalQc": {
+            "bp": 465,
+            "rfu": 8.4,
+            "status": "meet-the-criteria"
+          },
+          "assessment": "hd-normal",
+          "type": [
+            "hd-normal",
+            "hd-normal"
+          ],
+          "bp": [
+            114,
+            119
+          ],
+          "repeats": [
+            16,
+            17
+          ]
+        }
+      ]
+    },
+    {
+      "object": "2022/01/20 sample testing",
+      "path": "/examples/hd/0120-testing",
+      "reagent": "accuinHD1",
+      "instrument": "qsep100",
+      "control": {
+        "filename": "0317_ctrl.xlsx",
+        "qc": "meet-the-criteria",
+        "standard1": {
+          "bp": 117,
+          "status": "meet-the-criteria"
+        },
+        "standard2": {
+          "bp": 190,
+          "status": "meet-the-criteria"
+        }
+      },
+      "sample": [
+        {
+          "filename": "sampleC5_17_28.xlsx",
+          "internalQc": {
+            "bp": 469,
+            "rfu": 7.19,
+            "status": "meet-the-criteria"
+          },
+          "assessment": "hd-intermediate",
+          "type": [
+            "hd-normal",
+            "hd-intermediate"
+          ],
+          "bp": [
+            120,
+            152
+          ],
+          "repeats": [
+            18,
+            28
+          ]
+        },
+        {
+          "filename": "sample蔡.xlsx",
+          "internalQc": {
+            "bp": 457,
+            "rfu": 5.16,
+            "status": "meet-the-criteria"
+          },
+          "assessment": "hd-normal",
+          "type": [
+            "hd-normal",
+            "hd-normal"
+          ],
+          "bp": [
+            118
+          ],
+          "repeats": [
+            17
+          ]
+        },
+        {
+          "filename": "sample郭.xlsx",
+          "internalQc": {
+            "bp": 466,
+            "rfu": 5.12,
+            "status": "meet-the-criteria"
+          },
+          "assessment": "hd-normal",
+          "type": [
+            "hd-normal",
+            "hd-normal"
+          ],
+          "bp": [
+            113,
+            119
+          ],
+          "repeats": [
+            15,
+            17
+          ]
+        }
+      ]
+    },
+    {
+      "object": "2022/01/21 sample testing",
+      "path": "/examples/hd/0121-testing",
+      "reagent": "accuinHD1",
+      "instrument": "qsep100",
+      "control": {
+        "filename": "0317_ctrl.xlsx",
+        "qc": "meet-the-criteria",
+        "standard1": {
+          "bp": 117,
+          "status": "meet-the-criteria"
+        },
+        "standard2": {
+          "bp": 190,
+          "status": "meet-the-criteria"
+        }
+      },
+      "sample": [
+        {
+          "filename": "sampleA8_17_17.xlsx",
+          "internalQc": {
+            "bp": 460,
+            "rfu": 6.74,
+            "status": "meet-the-criteria"
+          },
+          "assessment": "hd-normal",
+          "type": [
+            "hd-normal",
+            "hd-normal"
+          ],
+          "bp": [
+            118
+          ],
+          "repeats": [
+            17
+          ]
+        },
+        {
+          "filename": "sampleC4_17_25.xlsx",
+          "internalQc": {
+            "bp": 466,
+            "rfu": 11.19,
+            "status": "meet-the-criteria"
+          },
+          "assessment": "hd-normal",
+          "type": [
+            "hd-normal",
+            "hd-normal"
+          ],
+          "bp": [
+            120,
+            142
+          ],
+          "repeats": [
+            18,
+            25
+          ]
+        },
+        {
+          "filename": "sampleD3_22_44.xlsx",
+          "internalQc": {
+            "bp": 466,
+            "rfu": 18.11,
+            "status": "meet-the-criteria"
+          },
+          "assessment": "hd-full",
+          "type": [
+            "hd-normal",
+            "hd-full"
+          ],
+          "bp": [
+            136,
+            201
+          ],
+          "repeats": [
+            23,
+            45
+          ]
+        }
+      ]
+    },
+    {
+      "object": "2022/01/24 sample testing",
+      "path": "/examples/hd/0124-testing",
+      "reagent": "accuinHD1",
+      "instrument": "qsep100",
+      "control": {
+        "filename": "0317_ctrl.xlsx",
+        "qc": "meet-the-criteria",
+        "standard1": {
+          "bp": 117,
+          "status": "meet-the-criteria"
+        },
+        "standard2": {
+          "bp": 190,
+          "status": "meet-the-criteria"
+        }
+      },
+      "sample": [
+        {
+          "filename": "sampleA5_17_17.xlsx",
+          "internalQc": {
+            "bp": 449,
+            "rfu": 6.48,
+            "status": "meet-the-criteria"
+          },
+          "assessment": "hd-normal",
+          "type": [
+            "hd-normal",
+            "hd-normal"
+          ],
+          "bp": [
+            116
+          ],
+          "repeats": [
+            16
+          ]
+        },
+        {
+          "filename": "sampleA6_17_17.xlsx",
+          "internalQc": {
+            "bp": 453,
+            "rfu": 4.16,
+            "status": "meet-the-criteria"
+          },
+          "assessment": "hd-normal",
+          "type": [
+            "hd-normal",
+            "hd-normal"
+          ],
+          "bp": [
+            114
+          ],
+          "repeats": [
+            16
+          ]
+        },
+        {
+          "filename": "sampleC2_17_21.xlsx",
+          "internalQc": {
+            "bp": 467,
+            "rfu": 5.03,
+            "status": "meet-the-criteria"
+          },
+          "assessment": "hd-normal",
+          "type": [
+            "hd-normal",
+            "hd-normal"
+          ],
+          "bp": [
+            118,
+            129
+          ],
+          "repeats": [
+            17,
+            21
+          ]
+        },
+        {
+          "filename": "sampleC3_17_22.xlsx",
+          "internalQc": {
+            "bp": 466,
+            "rfu": 7.03,
+            "status": "meet-the-criteria"
+          },
+          "assessment": "hd-normal",
+          "type": [
+            "hd-normal",
+            "hd-normal"
+          ],
+          "bp": [
+            119,
+            133
+          ],
+          "repeats": [
+            17,
+            22
+          ]
+        },
+        {
+          "filename": "sampleC8_18_18.xlsx",
+          "internalQc": {
+            "bp": 457,
+            "rfu": 7.55,
+            "status": "meet-the-criteria"
+          },
+          "assessment": "hd-normal",
+          "type": [
+            "hd-normal",
+            "hd-normal"
+          ],
+          "bp": [
+            121
+          ],
+          "repeats": [
+            18
+          ]
+        }
+      ]
+    },
+    {
+      "object": "2022/02/15 sample testing",
+      "path": "/examples/hd/0215-testing",
+      "reagent": "accuinHD1",
+      "instrument": "qsep100",
+      "control": {
+        "filename": "0317_ctrl.xlsx",
+        "qc": "meet-the-criteria",
+        "standard1": {
+          "bp": 117,
+          "status": "meet-the-criteria"
+        },
+        "standard2": {
+          "bp": 190,
+          "status": "meet-the-criteria"
+        }
+      },
+      "sample": [
+        {
+          "filename": "sample郭.xlsx",
+          "internalQc": {
+            "bp": 447,
+            "rfu": 10.29,
+            "status": "meet-the-criteria"
+          },
+          "assessment": "hd-normal",
+          "type": [
+            "hd-normal",
+            "hd-normal"
+          ],
+          "bp": [
+            110,
+            115
+          ],
+          "repeats": [
+            14,
+            16
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Meet criteria testing",
+      "path": "/examples/hd/meet-criteria-testing",
+      "reagent": "accuinHD1",
+      "instrument": "qsep100",
+      "control": {
+        "filename": "control_hd_pass.xlsx",
+        "qc": "meet-the-criteria",
+        "standard1": {
+          "bp": 117,
+          "status": "meet-the-criteria"
+        },
+        "standard2": {
+          "bp": 190,
+          "status": "meet-the-criteria"
+        }
+      },
+      "sample": [
+        {
+          "filename": "sample_full.xlsx",
+          "internalQc": {
+            "bp": 466,
+            "rfu": 18.11,
+            "status": "meet-the-criteria"
+          },
+          "assessment": "hd-full",
+          "type": [
+            "hd-normal",
+            "hd-full"
+          ],
+          "bp": [
+            136,
+            201
+          ],
+          "repeats": [
+            23,
+            45
+          ]
+        },
+        {
+          "filename": "sample_intermediate.xlsx",
+          "internalQc": {
+            "bp": 448,
+            "rfu": 9.99,
+            "status": "meet-the-criteria"
+          },
+          "assessment": "hd-intermediate",
+          "type": [
+            "hd-normal",
+            "hd-intermediate"
+          ],
+          "bp": [
+            113,
+            152
+          ],
+          "repeats": [
+            15,
+            28
+          ]
+        },
+        {
+          "filename": "sample_internal_failed.xlsx",
+          "internalQc": {
+            "bp": null,
+            "rfu": null,
+            "status": "fail-the-criteria"
+          },
+          "assessment": "invalid",
+          "type": [],
+          "bp": [],
+          "repeats": []
+        },
+        {
+          "filename": "sample_invalid.xlsx",
+          "internalQc": {
+            "bp": 446,
+            "rfu": 8.34,
+            "status": "meet-the-criteria"
+          },
+          "assessment": "invalid",
+          "type": [],
+          "bp": [],
+          "repeats": []
+        },
+        {
+          "filename": "sample_normal_one_peak.xlsx",
+          "internalQc": {
+            "bp": 449,
+            "rfu": 6.48,
+            "status": "meet-the-criteria"
+          },
+          "assessment": "hd-normal",
+          "type": [
+            "hd-normal",
+            "hd-normal"
+          ],
+          "bp": [
+            116
+          ],
+          "repeats": [
+            16
+          ]
+        },
+        {
+          "filename": "sample_normal.xlsx",
+          "internalQc": {
+            "bp": 465,
+            "rfu": 8.4,
+            "status": "meet-the-criteria"
+          },
+          "assessment": "hd-normal",
+          "type": [
+            "hd-normal",
+            "hd-normal"
+          ],
+          "bp": [
+            114,
+            119
+          ],
+          "repeats": [
+            16,
+            17
+          ]
+        },
+        {
+          "filename": "sample_penetrance.xlsx",
+          "internalQc": {
+            "bp": 466,
+            "rfu": 18.11,
+            "status": "meet-the-criteria"
+          },
+          "assessment": "hd-full",
+          "type": [
+            "hd-normal",
+            "hd-full"
+          ],
+          "bp": [
+            136,
+            201
+          ],
+          "repeats": [
+            23,
+            45
+          ]
+        },
+        {
+          "filename": "sample_reduced_penetrance.xlsx",
+          "internalQc": {
+            "bp": 466,
+            "rfu": 18.11,
+            "status": "meet-the-criteria"
+          },
+          "assessment": "hd-penetrance",
+          "type": [
+            "hd-normal",
+            "hd-penetrance"
+          ],
+          "bp": [
+            134,
+            181
+          ],
+          "repeats": [
+            22,
+            38
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Failed criteria testing",
+      "path": "/examples/hd/fail-criteria-testing",
+      "reagent": "accuinHD1",
+      "instrument": "qsep100",
+      "control": {
+        "filename": "control_hd_failed.xlsx",
+        "qc": "fail-the-criteria",
+        "standard1": {
+          "bp": null,
+          "status": "fail-the-criteria"
+        },
+        "standard2": {
+          "bp": null,
+          "status": "fail-the-criteria"
+        }
+      },
+      "sample": [
+        {
+          "filename": "sample_full.xlsx",
+          "internalQc": {
+            "bp": null,
+            "rfu": null,
+            "status": "fail-the-criteria"
+          },
+          "assessment": "inconclusive",
+          "type": [],
+          "bp": [],
+          "repeats": []
+        },
+        {
+          "filename": "sample_intermediate.xlsx",
+          "internalQc": {
+            "bp": null,
+            "rfu": null,
+            "status": "fail-the-criteria"
+          },
+          "assessment": "inconclusive",
+          "type": [],
+          "bp": [],
+          "repeats": []
+        },
+        {
+          "filename": "sample_internal_failed.xlsx",
+          "internalQc": {
+            "bp": null,
+            "rfu": null,
+            "status": "fail-the-criteria"
+          },
+          "assessment": "inconclusive",
+          "type": [],
+          "bp": [],
+          "repeats": []
+        },
+        {
+          "filename": "sample_invalid.xlsx",
+          "internalQc": {
+            "bp": null,
+            "rfu": null,
+            "status": "fail-the-criteria"
+          },
+          "assessment": "inconclusive",
+          "type": [],
+          "bp": [],
+          "repeats": []
+        },
+        {
+          "filename": "sample_normal_one_peak.xlsx",
+          "internalQc": {
+            "bp": null,
+            "rfu": null,
+            "status": "fail-the-criteria"
+          },
+          "assessment": "inconclusive",
+          "type": [],
+          "bp": [],
+          "repeats": []
+        },
+        {
+          "filename": "sample_normal.xlsx",
+          "internalQc": {
+            "bp": null,
+            "rfu": null,
+            "status": "fail-the-criteria"
+          },
+          "assessment": "inconclusive",
+          "type": [],
+          "bp": [],
+          "repeats": []
+        },
+        {
+          "filename": "sample_penetrance.xlsx",
+          "internalQc": {
+            "bp": null,
+            "rfu": null,
+            "status": "fail-the-criteria"
+          },
+          "assessment": "inconclusive",
+          "type": [],
+          "bp": [],
+          "repeats": []
+        },
+        {
+          "filename": "sample_reduced_penetrance.xlsx",
+          "internalQc": {
+            "bp": null,
+            "rfu": null,
+            "status": "fail-the-criteria"
+          },
+          "assessment": "inconclusive",
+          "type": [],
+          "bp": [],
+          "repeats": []
+        }
+      ]
+    },
+    {
+      "object": "2022/10/28 NEWCL sample testing",
+      "path": "/examples/hd/1028-newcl-testing",
+      "reagent": "accuinHD1",
+      "instrument": "qsep100",
+      "control": {
+        "filename": "HD-SC_S1A12_R1.xlsx",
+        "qc": "meet-the-criteria",
+        "standard1": {
+          "bp": 123,
+          "status": "meet-the-criteria"
+        },
+        "standard2": {
+          "bp": 199,
+          "status": "meet-the-criteria"
+        }
+      },
+      "sample": [
+        {
+          "filename": "HD_S2A01_R1.xlsx",
+          "internalQc": {
+            "bp": 487,
+            "rfu": 3.41,
+            "status": "meet-the-criteria"
+          },
+          "assessment": "hd-normal",
+          "type": [
+            "hd-normal",
+            "hd-normal"
+          ],
+          "bp": [
+            119
+          ],
+          "repeats": [
+            17
+          ]
+        },
+        {
+          "filename": "HD_S2A02_R1.xlsx",
+          "internalQc": {
+            "bp": 485,
+            "rfu": 4.78,
+            "status": "meet-the-criteria"
+          },
+          "assessment": "hd-normal",
+          "type": [
+            "hd-normal",
+            "hd-normal"
+          ],
+          "bp": [
+            119
+          ],
+          "repeats": [
+            17
+          ]
+        },
+        {
+          "filename": "HD_S2A03_R1.xlsx",
+          "internalQc": {
+            "bp": 486,
+            "rfu": 3.66,
+            "status": "meet-the-criteria"
+          },
+          "assessment": "hd-normal",
+          "type": [
+            "hd-normal",
+            "hd-normal"
+          ],
+          "bp": [
+            119
+          ],
+          "repeats": [
+            17
+          ]
+        },
+        {
+          "filename": "HD_S2A04_R1.xlsx",
+          "internalQc": {
+            "bp": 485,
+            "rfu": 4.19,
+            "status": "meet-the-criteria"
+          },
+          "assessment": "hd-normal",
+          "type": [
+            "hd-normal",
+            "hd-normal"
+          ],
+          "bp": [
+            119
+          ],
+          "repeats": [
+            17
+          ]
+        },
+        {
+          "filename": "HD_S2A05_R1.xlsx",
+          "internalQc": {
+            "bp": 485,
+            "rfu": 3.77,
+            "status": "meet-the-criteria"
+          },
+          "assessment": "hd-normal",
+          "type": [
+            "hd-normal",
+            "hd-normal"
+          ],
+          "bp": [
+            123,
+            129
+          ],
+          "repeats": [
+            19,
+            21
+          ]
+        },
+        {
+          "filename": "HD_S2A06_R1.xlsx",
+          "internalQc": {
+            "bp": 485,
+            "rfu": 5.98,
+            "status": "meet-the-criteria"
+          },
+          "assessment": "hd-normal",
+          "type": [
+            "hd-normal",
+            "hd-normal"
+          ],
+          "bp": [
+            119,
+            126
+          ],
+          "repeats": [
+            17,
+            20
+          ]
+        },
+        {
+          "filename": "HD_S2A07_R1.xlsx",
+          "internalQc": {
+            "bp": 486,
+            "rfu": 6.08,
+            "status": "meet-the-criteria"
+          },
+          "assessment": "hd-normal",
+          "type": [
+            "hd-normal",
+            "hd-normal"
+          ],
+          "bp": [
+            119,
+            138
+          ],
+          "repeats": [
+            17,
+            24
+          ]
+        },
+        {
+          "filename": "HD_S2A08_R1.xlsx",
+          "internalQc": {
+            "bp": 485,
+            "rfu": 6.06,
+            "status": "meet-the-criteria"
+          },
+          "assessment": "hd-normal",
+          "type": [
+            "hd-normal",
+            "hd-normal"
+          ],
+          "bp": [
+            119
+          ],
+          "repeats": [
+            17
+          ]
+        },
+        {
+          "filename": "HD_S2A09_R1.xlsx",
+          "internalQc": {
+            "bp": 484,
+            "rfu": 7.98,
+            "status": "meet-the-criteria"
+          },
+          "assessment": "hd-normal",
+          "type": [
+            "hd-normal",
+            "hd-normal"
+          ],
+          "bp": [
+            119
+          ],
+          "repeats": [
+            17
+          ]
+        },
+        {
+          "filename": "HD_S2A10_R1.xlsx",
+          "internalQc": {
+            "bp": 485,
+            "rfu": 6.94,
+            "status": "meet-the-criteria"
+          },
+          "assessment": "hd-normal",
+          "type": [
+            "hd-normal",
+            "hd-normal"
+          ],
+          "bp": [
+            119,
+            122
+          ],
+          "repeats": [
+            17,
+            18
+          ]
+        },
+        {
+          "filename": "HD_S2A11_R1.xlsx",
+          "internalQc": {
+            "bp": 486,
+            "rfu": 6.12,
+            "status": "meet-the-criteria"
+          },
+          "assessment": "hd-normal",
+          "type": [
+            "hd-normal",
+            "hd-normal"
+          ],
+          "bp": [
+            116,
+            119
+          ],
+          "repeats": [
+            16,
+            17
+          ]
+        }
+      ]
+    }
+  ],
+  "nudt15": [
+    {
+      "object": "Z480 2024/07/18 sample testing",
+      "path": "/examples/nudt15/",
+      "reagent": "accuinNUDT152",
+      "instrument": "z480",
+      "control": {
+        "qc": "meet-the-criteria",
+        "nudt15": {
+          "well": "D5"
+        },
+        "ntc": {
+          "well": "D4"
+        }
+      },
+      "fam": {
+        "filename": "nudt_465-510.txt"
+      },
+      "vic": {
+        "filename": "nudt_540-580.txt"
+      }
+    },
+    {
+      "object": "QS3 sample testing",
+      "path": "/examples/nudt15/",
+      "reagent": "accuinNUDT151",
+      "instrument": "qs3",
+      "control": {
+        "qc": "meet-the-criteria",
+        "nudt15": {
+          "well": "C5"
+        },
+        "ntc": {
+          "well": "G5"
+        }
+      },
+      "filename": "NUDT15_40cy_68.xls"
+    }
+  ],
+  "sma": [
+    {
+      "object": "Z480 Meet the criteria",
+      "path": "/examples/sma/",
+      "reagent": "accuinSma3",
+      "instrument": "z480",
+      "control": {
+        "qc": "meet-the-criteria",
+        "ntc": {
+          "well": "A8"
+        },
+        "ctrl1": {
+          "well": "C7"
+        },
+        "ctrl2": {
+          "well": "D7"
+        }
+      },
+      "fam": {
+        "filename": "sma_465-510.txt"
+      },
+      "vic": {
+        "filename": "sma_540-580.txt"
+      },
+      "cy5": {
+        "filename": "sma_610-670.txt"
+      }
+    },
+    {
+      "object": "Meet the criteria",
+      "path": "/examples/sma/",
+      "reagent": "accuinSma2",
+      "instrument": "qs3",
+      "filename": "qs3_pass_D6_C4_B4_A4.xls",
+      "control": {
+        "qc": "meet-the-criteria",
+        "ntc": {
+          "well": "D6"
+        },
+        "ctrl1": {
+          "well": "C4"
+        },
+        "ctrl2": {
+          "well": "B4"
+        },
+        "ctrl3": {
+          "well": "A4"
+        }
+      }
+    },
+    {
+      "object": "Meet the criteria",
+      "path": "/examples/sma/",
+      "reagent": "accuinSma2",
+      "instrument": "qs3",
+      "filename": "qs3_pass_F5_E5_D5_C5.xls",
+      "control": {
+        "qc": "meet-the-criteria",
+        "ntc": {
+          "well": "F5"
+        },
+        "ctrl1": {
+          "well": "E5"
+        },
+        "ctrl2": {
+          "well": "D5"
+        },
+        "ctrl3": {
+          "well": "C5"
+        }
+      }
+    },
+    {
+      "object": "Meet the criteria",
+      "path": "/examples/sma/",
+      "reagent": "accuinSma1",
+      "instrument": "tower",
+      "filename": "tower_pass_D11_G10_H10.csv",
+      "control": {
+        "qc": "meet-the-criteria",
+        "ntc": {
+          "well": "D11"
+        },
+        "ctrl1": {
+          "well": "G10"
+        },
+        "ctrl2": {
+          "well": "H10"
+        },
+        "ctrl3": {
+          "well": ""
+        }
+      }
+    },
+    {
+      "object": "Meet the criteria",
+      "path": "/examples/sma/",
+      "reagent": "accuinSma1",
+      "instrument": "tower",
+      "filename": "tower_pass_H11_F11_G11.csv",
+      "control": {
+        "qc": "meet-the-criteria",
+        "ntc": {
+          "well": "H11"
+        },
+        "ctrl1": {
+          "well": "F11"
+        },
+        "ctrl2": {
+          "well": "G11"
+        },
+        "ctrl3": {
+          "well": ""
+        }
+      }
+    },
+    {
+      "object": "Meet the criteria",
+      "path": "/examples/sma/",
+      "reagent": "accuinSma1",
+      "instrument": "tower",
+      "filename": "tower_pass_F8_F9_F10.csv",
+      "control": {
+        "qc": "meet-the-criteria",
+        "ntc": {
+          "well": "F10"
+        },
+        "ctrl1": {
+          "well": "F9"
+        },
+        "ctrl2": {
+          "well": "F8"
+        },
+        "ctrl3": {
+          "well": ""
+        }
+      }
+    }
+  ]
+}

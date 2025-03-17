@@ -1,0 +1,66 @@
+Experiment: MTHFR_acc_20240325  Selected Filter: 465-510 (465-510)
+Include	Color	Pos	Name	Cp	Concentration	Standard	Status
+True	255	A2	Sample 2	25.95		0	
+True	255	A3	Sample 3	25.08		0	
+True	255	A5	Sample 5	26.04		0	
+True	255	A6	Sample 6	25.01		0	
+True	255	A8	Sample 8	26.07		0	
+True	255	A9	Sample 9	25.03		0	
+True	255	A11	Sample 11	25.72		0	
+True	255	A12	Sample 12	24.81		0	
+True	255	B2	Sample 14	25.52		0	
+True	255	B3	Sample 15	24.81		0	
+True	255	B5	Sample 17	25.37		0	
+True	255	B6	Sample 18	24.84		0	
+True	255	B8	Sample 20	25.62		0	
+True	255	B9	Sample 21	24.72		0	
+True	255	B11	Sample 23	25.76		0	
+True	255	B12	Sample 24	24.77		0	
+True	65280	C2	Sample 26			0	
+True	255	C3	Sample 27	25.24		0	
+True	65280	C5	Sample 29			0	
+True	65280	C6	Sample 30			0	
+True	65280	C8	Sample 32			0	
+True	65280	C9	Sample 33			0	
+True	65280	C11	Sample 35			0	
+True	65280	C12	Sample 36			0	
+True	255	D2	Sample 38	26.05		0	
+True	255	D3	Sample 39	25.21		0	
+True	255	D5	Sample 41	26.13		0	
+True	255	D6	Sample 42	25.14		0	
+True	255	D8	Sample 44	26.09		0	
+True	255	D9	Sample 45	25.16		0	
+True	255	D11	Sample 47	26.06		0	
+True	255	D12	Sample 48	25.29		0	
+True	255	E2	Sample 50	23.98		0	
+True	255	E3	Sample 51	26.86		0	
+True	255	E5	Sample 53	24.01		0	
+True	255	E6	Sample 54	26.95		0	
+True	255	E8	Sample 56	23.99		0	
+True	255	E9	Sample 57	26.98		0	
+True	255	E11	Sample 59	23.84		0	
+True	255	E12	Sample 60	26.93		0	
+True	65280	F2	Sample 62			0	
+True	255	F3	Sample 63	26.43		0	
+True	65280	F5	Sample 65			0	
+True	255	F6	Sample 66	26.52		0	
+True	65280	F8	Sample 68			0	
+True	255	F9	Sample 69	26.50		0	
+True	65280	F11	Sample 71			0	
+True	255	F12	Sample 72	26.40		0	
+True	255	G2	Sample 74	28.66		0	
+True	65280	G3	Sample 75			0	
+True	255	G5	Sample 77	28.57		0	
+True	65280	G6	Sample 78			0	
+True	255	G8	Sample 80	28.48		0	
+True	65280	G9	Sample 81			0	
+True	255	G11	Sample 83	28.34		0	
+True	65280	G12	Sample 84			0	
+True	65280	H2	Sample 86			0	
+True	255	H3	Sample 87	26.98		0	
+True	65280	H5	Sample 89			0	
+True	255	H6	Sample 90	27.14		0	
+True	65280	H8	Sample 92			0	
+True	255	H9	Sample 93	27.07		0	
+True	65280	H11	Sample 95			0	
+True	255	H12	Sample 96	26.86		0	

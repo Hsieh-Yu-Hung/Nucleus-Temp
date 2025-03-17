@@ -1,0 +1,18 @@
+Experiment: 20240311_SMA-2  Selected Filter: 465-510 (465-510)
+Include	Color	Pos	Name	Cp	Concentration	Standard	Status
+True	255	A3	Sample 3	23.64		0	
+True	255	A5	Sample 5	23.58		0	
+True	255	B3	Sample 15	23.93		0	
+True	255	B5	Sample 17	23.89		0	
+True	255	C3	Sample 27	24.39		0	
+True	255	C5	Sample 29	24.41		0	
+True	255	D3	Sample 39	23.85		0	
+True	255	D5	Sample 41	23.53		0	
+True	255	E3	Sample 51	24.43		0	
+True	255	E5	Sample 53	24.11		0	
+True	255	F3	Sample 63	23.65		0	
+True	255	F5	Sample 65	23.62		0	
+True	255	G3	Sample 75	22.69		0	
+True	255	G5	Sample 77	22.60		0	
+True	65280	H3	Sample 87			0	
+True	65280	H5	Sample 89			0	

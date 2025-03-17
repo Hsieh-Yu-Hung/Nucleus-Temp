@@ -1,0 +1,97 @@
+Title:,
+Date/Time:,2023/6/21,¤W¤È 08:54:01
+Device:,qTOWER3/G,3107D-0279
+Operator:,
+Comments:,
+Colors+Dyes:,Pos,Color Module,Dye,Gain,Meas,Refr
+,1,Blue.470.520.11.3,FAM,10,*,
+,2,Green.515.545.11.2,VIC,4,*,
+,3,Yellow.535.580.11.2,TAMRA,4,*,
+,4,Orange.565.605.11.2,ROX,3,*,
+,5,Red.630.670.11.1,Cy5,5,,
+Heated Lid:,100¢XC
+TC Protocol:,steps,scan,¢XC,m:s,goto,loops,delta Temp(¢XC),delta Time (s),ramp (¢XC/s
+,1,,95,03:00,0,0,0,0,1.6
+,2,,95,00:10,0,0,0,0,1.6
+,3,*,60,00:30,2,35,0,0,1.6
+Melt active:,No
+Meas. Repeats:,5
+Color Comp.:,
+
+Well,,Sample name,Sample type,Dye,Gene,Ct,Mean Ct
+A3,,0619-1,Unknown,ROX,,22.26,22.26
+A3,,0619-1,Unknown,VIC,,21.79,21.79
+A3,,0619-1,Unknown,FAM,,21.03,21.03
+A3,,0619-1,Unknown,TAMRA,,23.01,23.01
+B3,,0619-2,Unknown,VIC,,21.21,21.21
+B3,,0619-2,Unknown,FAM,,20.12,20.12
+B3,,0619-2,Unknown,TAMRA,,22.11,22.11
+B3,,0619-2,Unknown,ROX,,23.1,23.1
+C3,,0619-3,Unknown,ROX,,23.14,23.14
+C3,,0619-3,Unknown,TAMRA,,22.24,22.24
+C3,,0619-3,Unknown,VIC,,21.74,21.74
+C3,,0619-3,Unknown,FAM,,20.25,20.25
+D3,,0619-4,Unknown,TAMRA,,23.53,23.53
+D3,,0619-4,Unknown,VIC,,22.17,22.17
+D3,,0619-4,Unknown,FAM,,21.26,21.26
+D3,,0619-4,Unknown,ROX,,22.63,22.63
+E3,,0619-5,Unknown,TAMRA,,26.4,26.4
+E3,,0619-5,Unknown,FAM,,21.32,21.32
+E3,,0619-5,Unknown,ROX,,23.37,23.37
+E3,,0619-5,Unknown,VIC,,22.73,22.73
+F3,,0619-6,Unknown,VIC,,23.21,23.21
+F3,,0619-6,Unknown,FAM,,21.17,21.17
+F3,,0619-6,Unknown,ROX,,23.43,23.43
+F3,,0619-6,Unknown,TAMRA,,23.66,23.66
+G3,,0619-7,Unknown,TAMRA,,22.24,22.24
+G3,,0619-7,Unknown,VIC,,22.28,22.28
+G3,,0619-7,Unknown,FAM,,20.51,20.51
+G3,,0619-7,Unknown,ROX,,22.85,22.85
+H3,,0616-3 R,Unknown,FAM,,21.46,21.46
+H3,,0616-3 R,Unknown,ROX,,22.87,22.87
+H3,,0616-3 R,Unknown,VIC,,21.7,21.7
+H3,,0616-3 R,Unknown,TAMRA,,22.36,22.36
+A6,,0620-1,Unknown,TAMRA,,23.3,23.3
+A6,,0620-1,Unknown,FAM,,21.39,21.39
+A6,,0620-1,Unknown,VIC,,21.97,21.97
+A6,,0620-1,Unknown,ROX,,23.66,23.66
+B6,,0620-2,Unknown,VIC,,22.63,22.63
+B6,,0620-2,Unknown,ROX,,23.9,23.9
+B6,,0620-2,Unknown,FAM,,21.12,21.12
+B6,,0620-2,Unknown,TAMRA,,22.92,22.92
+C6,,0620-3,Unknown,ROX,,24.54,24.54
+C6,,0620-3,Unknown,FAM,,21.84,21.84
+C6,,0620-3,Unknown,VIC,,23.06,23.06
+C6,,0620-3,Unknown,TAMRA,,23.19,23.19
+D6,,0620-4,Unknown,TAMRA,,27.3,27.3
+D6,,0620-4,Unknown,FAM,,21.08,21.08
+D6,,0620-4,Unknown,VIC,,25.55,25.55
+D6,,0620-4,Unknown,ROX,,24.27,24.27
+E6,,0620-5,Unknown,TAMRA,,24.13,24.13
+E6,,0620-5,Unknown,FAM,,21.91,21.91
+E6,,0620-5,Unknown,VIC,,23.07,23.07
+E6,,0620-5,Unknown,ROX,,24.12,24.12
+F6,,0620-6,Unknown,TAMRA,,23.71,23.71
+F6,,0620-6,Unknown,FAM,,22.21,22.21
+F6,,0620-6,Unknown,VIC,,23.16,23.16
+F6,,0620-6,Unknown,ROX,,23.86,23.86
+G6,,0620-7,Unknown,ROX,,24,24
+G6,,0620-7,Unknown,VIC,,22.51,22.51
+G6,,0620-7,Unknown,FAM,,20.77,20.77
+G6,,0620-7,Unknown,TAMRA,,23.08,23.08
+H6,,0620-8,Unknown,FAM,,21.77,21.77
+H6,,0620-8,Unknown,VIC,,22.87,22.87
+H6,,0620-8,Unknown,TAMRA,,23.12,23.12
+H6,,0620-8,Unknown,ROX,,23.01,23.01
+B9,,SC1,Standard,FAM,,23.08,23.08
+B9,,SC1,Standard,VIC,,23.22,23.22
+B9,,SC1,Standard,ROX,,24.06,24.06
+B9,,SC1,Standard,TAMRA,,24.11,24.11
+C9,,SC2,Standard,FAM,,21.53,21.53
+C9,,SC2,Standard,VIC,,22.57,22.57
+C9,,SC2,Standard,TAMRA,,23.22,23.22
+C9,,SC2,Standard,ROX,,24.36,24.36
+D9,,NTC,NTC,FAM,,No Ct,
+D9,,NTC,NTC,VIC,,No Ct,
+D9,,NTC,NTC,TAMRA,,No Ct,
+D9,,NTC,NTC,ROX,,No Ct,

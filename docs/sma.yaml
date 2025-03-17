@@ -1,0 +1,106 @@
+sma:
+  type: object
+  properties:
+    control:
+      type: object
+      properties:
+        ntc:
+          type: object
+          properties:
+            name:
+              type: string
+            well:
+              type: string
+            smn1:
+              type: float
+            smn2:
+              type: float
+            rnp:
+              type: float
+        ctrl1:
+          type: object
+          properties:
+            name:
+              type: string
+            well:
+              type: string
+            smn1:
+              type: float
+            smn2:
+              type: float
+            rnp:
+              type: float
+        ctrl2:
+          type: object
+          properties:
+            name:
+              type: string
+            well:
+              type: string
+            smn1:
+              type: float
+            smn2:
+              type: float
+            rnp:
+              type: float
+    qc:
+      type: object
+      properties:
+        run_id:
+          type: string
+        status:
+          type: string
+          enumerate:
+            - Meet the criteria
+            - Fail the critera
+        delta_ratio:
+          type: float
+        rnp_smn1_1n:
+          type: float
+        rnp_smn1_2n:
+          type: float
+        smn1_3n:
+          type: float
+        smn1_4n:
+          type: float
+        rnp_smn2_1n:
+          type: float
+        rnp_smn2_2n:
+          type: float
+        smn2_3n:
+          type: float
+        smn2_4n:
+          type: float
+    sample:
+      type: array
+      items:
+        type: object
+        properties:
+          name:
+            type: string
+          well:
+            type: string
+          smn1:
+            type: float
+          smn2:
+            type: float
+          rnp:
+            type: float
+          type:
+            type: array
+            items:
+              type: integer
+            rnp_smn1:
+              type: float
+            rnp_smn2:
+              type: float
+            assessment":
+              type: string
+              enumerate:
+                - Normal
+                - SMA carrier
+                - SMA affected (Werdnig-Hoffmann Disease)
+                - SMA affected (Dubowitz disease)
+                - SMA affected (Kugelberg-Welander Disease)
+                - Inconclusive
+                - Invalid

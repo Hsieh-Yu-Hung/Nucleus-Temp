@@ -1,0 +1,54 @@
+mthfr:
+  type: object
+  properties:
+    control:
+      type: object
+      properties:
+        mthfr:
+          type: object
+          properties:
+            name:
+              type: string
+            well:
+              type: string
+            wt:
+              type: float
+            mut:
+              type: float
+    qc:
+      type: object
+      properties:
+        runId:
+          type: string
+        status:
+          type: string
+          enumerate:
+            - meet-the-criteria
+            - fail-the-critera
+    sample:
+      type: array
+      items:
+        type: object
+        properties:
+          name:
+            type: string
+          well:
+            type: string
+          assessment:
+            type: string
+            enumerate:
+              - low-risk
+              - hogh-risk
+              - inconclusive
+              - invalid
+          wt:
+            type: float
+          mut:
+            type: float
+          type:
+            type: array
+            items:
+              type: string
+              enumerate:
+                - c
+                - t

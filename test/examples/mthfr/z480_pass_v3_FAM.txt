@@ -1,0 +1,10 @@
+Experiment: 20240307_acc_mthfr  Selected Filter: 465-510 (465-510)
+Include	Color	Pos	Name	Cp	Concentration	Standard	Status
+True	65280	A1	Sample 1			0	
+True	255	B1	Sample 13	26.94		0	
+True	255	C1	Sample 25	27.55		0	
+True	255	D1	Sample 37	26.02		0	
+True	255	E1	Sample 49	27.47		0	
+True	65280	F1	Sample 61			0	
+True	255	G1	Sample 73	25.22		0	
+True	65280	H1	Sample 85			0	

@@ -1,0 +1,102 @@
+Title:,
+Date/Time:,2023/6/16,¤U¤È 01:10:05
+Device:,qTOWER3/G,3107D-0279
+Operator:,
+Comments:,
+Colors+Dyes:,Pos,Color Module,Dye,Gain,Meas,Refr
+,1,Blue.470.520.11.3,FAM,10,*,
+,2,Green.515.545.11.2,VIC,4,*,
+,3,Yellow.535.580.11.2,TAMRA,5,,
+,4,Orange.565.605.11.2,ROX,4,*,
+,5,Red.630.670.11.1,Cy5,5,,
+Heated Lid:,100¢XC
+TC Protocol:,steps,scan,¢XC,m:s,goto,loops,delta Temp(¢XC),delta Time (s),ramp (¢XC/s
+,1,,95,03:00,0,0,0,0,1.6
+,2,,95,00:10,0,0,0,0,1.6
+,3,*,60,00:30,2,35,0,0,1.6
+Melt active:,No
+Meas. Repeats:,5
+Color Comp.:,
+
+Well,,Sample name,Sample type,Dye,Gene,Ct,Mean Ct
+A3,,0614-1,Unknown,FAM,,23.87,23.87
+A3,,0614-1,Unknown,VIC,,24.42,24.42
+A3,,0614-1,Unknown,ROX,,25.06,25.06
+B3,,0614-2,Unknown,FAM,,23.13,23.13
+B3,,0614-2,Unknown,ROX,,24.48,24.48
+B3,,0614-2,Unknown,VIC,,23.35,23.35
+C3,,0614-3,Unknown,ROX,,25,25
+C3,,0614-3,Unknown,VIC,,23.55,23.55
+C3,,0614-3,Unknown,FAM,,23.26,23.26
+D3,,0614-4,Unknown,ROX,,24.87,24.87
+D3,,0614-4,Unknown,VIC,,23.86,23.86
+D3,,0614-4,Unknown,FAM,,23.98,23.98
+E3,,0614-5,Unknown,ROX,,25.33,25.33
+E3,,0614-5,Unknown,VIC,,24.63,24.63
+E3,,0614-5,Unknown,FAM,,24.17,24.17
+F3,,0614-6,Unknown,ROX,,25.34,25.34
+F3,,0614-6,Unknown,VIC,,24.6,24.6
+F3,,0614-6,Unknown,FAM,,24.35,24.35
+G3,,0614-7,Unknown,FAM,,23.48,23.48
+G3,,0614-7,Unknown,ROX,,24.74,24.74
+G3,,0614-7,Unknown,VIC,,24.61,24.61
+H3,,0614-8,Unknown,FAM,,23.53,23.53
+H3,,0614-8,Unknown,VIC,,25.09,25.09
+H3,,0614-8,Unknown,ROX,,25.28,25.28
+A5,,0614-9,Unknown,ROX,,25.28,25.28
+A5,,0614-9,Unknown,VIC,,23.36,23.36
+A5,,0614-9,Unknown,FAM,,23.35,23.35
+B5,,0614-10,Unknown,ROX,,26.44,26.44
+B5,,0614-10,Unknown,VIC,,24.51,24.51
+B5,,0614-10,Unknown,FAM,,24.69,24.69
+C5,,0614-11,Unknown,VIC,,25.1,25.1
+C5,,0614-11,Unknown,ROX,,26.61,26.61
+C5,,0614-11,Unknown,FAM,,24.4,24.4
+D5,,0614-12,Unknown,VIC,,25.14,25.14
+D5,,0614-12,Unknown,FAM,,24.08,24.08
+D5,,0614-12,Unknown,ROX,,26.46,26.46
+E5,,0614-13,Unknown,VIC,,24.08,24.08
+E5,,0614-13,Unknown,FAM,,22.8,22.8
+E5,,0614-13,Unknown,ROX,,25.09,25.09
+F5,,0614-14,Unknown,VIC,,25.08,25.08
+F5,,0614-14,Unknown,ROX,,26.63,26.63
+F5,,0614-14,Unknown,FAM,,24.61,24.61
+G5,,0615-1,Unknown,FAM,,23.67,23.67
+G5,,0615-1,Unknown,ROX,,26.25,26.25
+G5,,0615-1,Unknown,VIC,,25.53,25.53
+H5,,0615-2,Unknown,ROX,,27.69,27.69
+H5,,0615-2,Unknown,FAM,,26.28,26.28
+H5,,0615-2,Unknown,VIC,,27.78,27.78
+A7,,0615-3,Unknown,ROX,,26.44,26.44
+A7,,0615-3,Unknown,VIC,,24.64,24.64
+A7,,0615-3,Unknown,FAM,,24.37,24.37
+B7,,0615-4,Unknown,ROX,,26.94,26.94
+B7,,0615-4,Unknown,VIC,,25.55,25.55
+B7,,0615-4,Unknown,FAM,,24.82,24.82
+C7,,0615-5,Unknown,VIC,,24.98,24.98
+C7,,0615-5,Unknown,FAM,,24.45,24.45
+C7,,0615-5,Unknown,ROX,,26.67,26.67
+D7,,0615-6,Unknown,FAM,,24.22,24.22
+D7,,0615-6,Unknown,VIC,,25.5,25.5
+D7,,0615-6,Unknown,ROX,,26.64,26.64
+E7,,0615-7,Unknown,ROX,,28.12,28.12
+E7,,0615-7,Unknown,FAM,,26.32,26.32
+E7,,0615-7,Unknown,VIC,,26.63,26.63
+F7,,0615-8,Unknown,ROX,,25.65,25.65
+F7,,0615-8,Unknown,VIC,,24.35,24.35
+F7,,0615-8,Unknown,FAM,,23.86,23.86
+G7,,0615-9,Unknown,ROX,,26,26
+G7,,0615-9,Unknown,VIC,,24.99,24.99
+G7,,0615-9,Unknown,FAM,,24.63,24.63
+H7,,0603-11,Unknown,ROX,,25.42,25.42
+H7,,0603-11,Unknown,FAM,,25.32,25.32
+H7,,0603-11,Unknown,VIC,,24.85,24.85
+A9,,SC1,Standard,VIC,,24.14,24.14
+A9,,SC1,Standard,FAM,,24.21,24.21
+A9,,SC1,Standard,ROX,,25.11,25.11
+B9,,SC2,Standard,FAM,,23.7,23.7
+B9,,SC2,Standard,VIC,,23.14,23.14
+B9,,SC2,Standard,ROX,,24.86,24.86
+C9,,NTC,NTC,FAM,,No Ct,
+C9,,NTC,NTC,VIC,,No Ct,
+C9,,NTC,NTC,ROX,,No Ct,

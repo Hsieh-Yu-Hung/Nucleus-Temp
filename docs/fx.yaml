@@ -1,0 +1,139 @@
+fx:
+  type: object
+  properties:
+    control:
+      type: object
+      properties:
+        control_id:
+          type: string
+        standard_1:
+          type: object
+          properties:
+            repeats_standard:
+              type: integer
+              enumerate:
+                - 30
+            bp:
+              type: integer
+            conc:
+              type: float
+        standard_2:
+          type: object
+          properties:
+            repeats_standard:
+              type: integer
+              enumerate:
+                - 50
+            bp:
+              type: integer
+            conc:
+              type: float
+        standard_3:
+          type: object
+          properties:
+            repeats_standard:
+              type: integer
+              enumerate:
+                - 80
+            bp:
+              type: integer
+            conc:
+              type: float
+        standard_4:
+          type: object
+          properties:
+            repeats_standard:
+              type: integer
+              enumerate:
+                - 200
+            bp:
+              type: integer
+            conc:
+              type: float
+    qc:
+      type: object
+      properties:
+        status:
+          type: string
+          enumerate:
+            - Meet the criteria
+            - Fail the critera
+        r_square:
+          type: float
+        slope:
+          type: float
+        linear:
+          type: array
+          items:
+            type: array
+            items:
+              type: float
+        max_bp:
+          type: integer
+        max_repeats:
+          type: integer
+    result:
+      type: array
+      items:
+        type: object
+        properties:
+          sample_id:
+            type: string
+          gender:
+            type: string
+            enumerate:
+              - female
+              - male
+              - -
+          assessment:
+            type: string
+            enumerate:
+              - Normal/Intermediate
+              - Normal/Premutation
+              - Normal/Full mutation
+              - Normal
+              - Intermediate/Premutation
+              - Intermediate/Full mutation
+              - Intermediate
+              - Premutation/Full mutation
+              - Premutation
+              - Full mutation
+              - Invalid
+              - Inconclusive
+          x_rfu:
+            type: float
+          interpretation:
+            type: array
+            items:
+              type: string
+              enumerate:
+                - Normal
+                - Intermediate
+                - Premutation
+                - Full mutation
+          position:
+            type: array
+            items:
+              type: object
+              properties:
+                repeats:
+                  type: integer
+                bp:
+                  type: integer
+                rfu:
+                  type: float
+          raw:
+            type: array
+            items:
+              type: object
+              properties:
+                bp:
+                  type: integer
+                conc:
+                  type: float
+                rfu:
+                  type: float
+                expected_repeats:
+                  type: integer
+                repeats:
+                  type: integer

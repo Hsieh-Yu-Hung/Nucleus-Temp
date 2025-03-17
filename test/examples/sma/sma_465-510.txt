@@ -1,0 +1,27 @@
+Experiment: SMA_20240718_acc  Selected Filter: 465-510 (465-510)
+Include	Color	Pos	Name	Cp	Concentration	Standard	Status
+True	255	A5	004494-Z	25.25		0	
+True	255	A6	004494	25.07		0	
+True	255	A7	Zoe	23.57		0	
+True	65280	A8	NTC			0	
+True	255	B5	010856-Z	22.97		0	
+True	255	B6	010856	23.21		0	
+True	255	B7	SMA22003	24.17		0	
+True	255	C5	010863-Z	23.23		0	
+True	255	C6	010863	23.86		0	
+True	255	C7	SC1-7/4	24.69		0	
+True	255	D5	012500-Z	23.38		0	
+True	255	D6	012500	23.61		0	
+True	255	D7	SC2-7/4	23.40		0	
+True	255	E5	014229-Z	23.24		0	
+True	255	E6	014229	23.84		0	
+True	255	E7	SC1-7/18	24.79		0	
+True	255	F5	Doris-Z	24.80		0	
+True	255	F6	Lin-z	23.33		0	
+True	255	F7	SC2-7/18	23.15		0	
+True	255	G5	Doris-Z	23.60		0	
+True	255	G6	Doris	23.59		0	
+True	255	G7	SC1-7/18-Zoe	24.31		0	
+True	255	H5	177800-Z	23.09		0	
+True	255	H6	177800	23.39		0	
+True	255	H7	SC2-7/18-Zoe	23.87		0	
