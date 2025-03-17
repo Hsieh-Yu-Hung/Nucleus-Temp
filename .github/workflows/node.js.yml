@@ -20,18 +20,19 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - name: Set up GitHub Actions
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           persist-credentials: false
       - name: Set up Node.js v18
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: "18"
+          cache: "npm"
       - name: Get npm cache directory
         id: npm-cache
         run: |
-          echo "::set-output name=DIR::$(npm config get cache)"
-      - uses: actions/cache@v2
+          echo "DIR=$(npm config get cache)" >> $GITHUB_OUTPUT
+      - uses: actions/cache@v3
         with:
           path: ${{ steps.npm-cache.outputs.DIR }}
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -43,9 +44,9 @@ jobs:
       - name: Test core
         run: npm test
       - name: Create python env
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
-          python-version: '3.8'
+          python-version: "3.8"
       - name: Install pytnon dependencies
         run: |
           pip install -r ./smaRf_requirements.txt
