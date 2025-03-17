@@ -40,7 +40,9 @@ jobs:
             ${{ runner.os }}-node-
       - name: Install packages by npm
         run: |
+          npm cache clean --force
           npm install
+          npm install cross-env --save-dev
       - name: Test core
         run: npm test
       - name: Create python env
