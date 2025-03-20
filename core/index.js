@@ -133,13 +133,10 @@ async function core(input) {
       result = await runSmaV4(
         input.smn1_std1_file,
         input.smn1_std2_file,
-        input.smn1_std3_file,
         input.smn2_std1_file,
         input.smn2_std2_file,
-        input.smn2_std3_file,
         input.smn1_sample_files,
         input.smn2_sample_files,
-        input.parameters
       );
     } else if (input.reagent === "accuinApoe1") {
       result = await runApoe(
