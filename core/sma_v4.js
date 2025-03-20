@@ -2,15 +2,12 @@
  * Testing SMA core v4 for Suspect-X.
  *
  * Run directly by node:
- *   node sma-v4-core-test.js \
- *   --parameters <parameter> \
+ *   node sma-v4.js \
  *   --smn1_std1 SMA1_standard1.xlsx \
  *   --smn1_std2 SMA1_standard2.xlsx \
- *   --smn1_std3 SMA1_standard3.xlsx \
  *   --smn1_sample SMA1_sample.xlsx \
  *   --smn2_std1 SMA2_standard1.xlsx \
  *   --smn2_std2 SMA2_standard2.xlsx \
- *   --smn2_std3 SMA2_standard3.xlsx \
  *   --smn2_sample SMA2_sample.xlsx
  */
 
@@ -23,29 +20,46 @@ const moment = require("moment");
 const logger = require("../logger/log.js")(module);
 const tableParser = require("../tableParser/parseTable.js")(module);
 const argv = require("minimist")(process.argv.slice(2), {default: {}});
-let QC_Failed = false;
 
 /* 實驗室定義數值範圍 */
 const default_LAB_DEFINED = {
   RANGE: {
-    SMA1_IC_SIZE_RANGE: {min: 217, max: 265},
-    SMA1_TG_SIZE_RANGE: {min: 111, max: 135},
-    SMA2_SEARCH_RANGE: {min: 275, max: 374}
+    SMN1_IC_SIZE_RANGE: {min: 198, max: 242},
+    SMN1_TG_SIZE_RANGE: {min: 107, max: 131},
+    SMN2_IC_SIZE_RANGE: {min: 313, max: 352},
+    SMN2_TG_SIZE_RANGE: {min: 266, max: 312},
   },
   RFU_THRESHOLD: {
-    SMN1_IC: 1,
-    SMN1_TG: 1,
-    SMN2: 1
+    SMN1_IC: 1.5,
+    SMN1_TG: 0,
+    SMN2_IC: 1.5,
+    SMN2_TG: 0
   },
   PEAK_NUMBER_CHECK: {
-    SMA1: 1,
-    SMA2: 2
+    SMN1: 1,
+    SMN2: 1
+  },
+  SC_DIFF_RATIO: {
+    SMN1: 1.3,
+    SMN2: 1.3
   },
   PEAK_SIZE:{
-    SMA1_IC: 241,
-    SMA1_TG: 123,
-    SMA2_IC: 340,
-    SMA2_TG: 306
+    SMN1_IC: 229,
+    SMN1_TG: 118,
+    SMN2_IC: 337,
+    SMN2_TG: 297
+  },
+  COPY_NUMBER_RANGE: {
+    smn1: {
+      copy_1: {min: 0.5, max: 1.2},
+      copy_2: {min: 1.4, max: 1.8},
+      invalid: 1.3
+    },
+    smn2: {
+      copy_1: {min: 0.5, max: 1.1},
+      copy_2: {min: 1.3, max: 1.8},
+      invalid: 1.2
+    }
   }
 }
 
@@ -60,7 +74,7 @@ if (!fs.existsSync(jsonOutputDir)) {
   fs.mkdirSync(jsonOutputDir, { recursive: true });
 }
 
-// 設定變數
+// 初始化共用變數
 let dataQC_status = ''
 let QC_information = []
 
@@ -192,8 +206,8 @@ function parseExcel(excelPath) {
 
 /* Step1: 準備輸入檔案 */
 function prepareInputFile(
-  smn1_std1, smn1_std2, smn1_std3,
-  smn2_std1, smn2_std2, smn2_std3,
+  smn1_std1, smn1_std2,
+  smn2_std1, smn2_std2,
   smn1_sample, smn2_sample
 ){
   let excel_for_parsing = {};
@@ -202,19 +216,15 @@ function prepareInputFile(
     excel_for_parsing = {
       'smn1_std1': {file: smn1_std1[0], exp_group: 'smn1_std1', label: 'smn1', id:'std1', type:'standard', sample_name: 'smn1_std1'},
       'smn1_std2': {file: smn1_std2[0], exp_group: 'smn1_std2', label: 'smn1', id:'std2', type:'standard', sample_name: 'smn1_std2'},
-      'smn1_std3': {file: smn1_std3[0], exp_group: 'smn1_std3', label: 'smn1', id:'std3', type:'standard', sample_name: 'smn1_std3'},
       'smn2_std1': {file: smn2_std1[0], exp_group: 'smn2_std1', label: 'smn2', id:'std1', type:'standard', sample_name: 'smn2_std1'},
-      'smn2_std2': {file: smn2_std2[0], exp_group: 'smn2_std2', label: 'smn2', id:'std2', type:'standard', sample_name: 'smn2_std2'},
-      'smn2_std3': {file: smn2_std3[0], exp_group: 'smn2_std3', label: 'smn2', id:'std3', type:'standard', sample_name: 'smn2_std3'}
+      'smn2_std2': {file: smn2_std2[0], exp_group: 'smn2_std2', label: 'smn2', id:'std2', type:'standard', sample_name: 'smn2_std2'}
     };
   } else{
     excel_for_parsing = {
       'smn1_std1': {file: smn1_std1, exp_group: 'smn1_std1', label: 'smn1', id:'std1', type:'standard', sample_name: 'smn1_std1'},
       'smn1_std2': {file: smn1_std2, exp_group: 'smn1_std2', label: 'smn1', id:'std2', type:'standard', sample_name: 'smn1_std2'},
-      'smn1_std3': {file: smn1_std3, exp_group: 'smn1_std3', label: 'smn1', id:'std3', type:'standard', sample_name: 'smn1_std3'},
       'smn2_std1': {file: smn2_std1, exp_group: 'smn2_std1', label: 'smn2', id:'std1', type:'standard', sample_name: 'smn2_std1'},
-      'smn2_std2': {file: smn2_std2, exp_group: 'smn2_std2', label: 'smn2', id:'std2', type:'standard', sample_name: 'smn2_std2'},
-      'smn2_std3': {file: smn2_std3, exp_group: 'smn2_std3', label: 'smn2', id:'std3', type:'standard', sample_name: 'smn2_std3'}
+      'smn2_std2': {file: smn2_std2, exp_group: 'smn2_std2', label: 'smn2', id:'std2', type:'standard', sample_name: 'smn2_std2'}
     };
   }
 
@@ -294,9 +304,8 @@ function findPeak(excel_data, peak_range, rfu_threshold, select_number, peak_num
   // 檢查 peak 數目是否足夠
   if (peak_data.length < peak_number_check) {
     logger.warn(`${excel_data['exp_group']} 範圍內 Peak 數目小於要求的： ${peak_number_check} 判定為無效.`);
-    dataQC_status = 'Fail the criteria';
-    QC_information.push(`Fail QC. Reason: ${excel_data['exp_group']} 範圍內 Peak 數目小於要求的： ${peak_number_check};`);
-    QC_Failed = true;
+    dataQC_status = 'fail-the-criteria';
+    QC_information.push(`${excel_data['exp_group']} 範圍內 Peak 數目小於要求的： ${peak_number_check};`);
   }
 
   // 搜集 peak 的 table 資料
@@ -306,15 +315,19 @@ function findPeak(excel_data, peak_range, rfu_threshold, select_number, peak_num
     peak_table['table_array'] = tableParser.reverseTransposeArrayTable(peak_table['table_array_transposed']);
   });
 
+  // 如果 QC failed, 直接回傳
+  if (peak_table['table_array']['RFU'] === undefined) {
+    return tableParser.reverseTransposeArrayTable(peak_table['table_array_transposed']);
+  }
+
   // RFU 門檻篩選
   const RFU_arrayData = peak_table['table_array']['RFU'];
   const filteredRFU_arrayData_index = RFU_arrayData.map((item, index) => item >= parseFloat(rfu_threshold) ? index : null).filter(item => item !== null);
 
   if (filteredRFU_arrayData_index.length < peak_number_check) {
     logger.warn(`${excel_data['exp_group']} RFU 門檻篩選後範圍內 Peak 數目小於要求的： ${peak_number_check} 判定為無效.`);
-    dataQC_status = 'Fail the criteria';
-    QC_information.push(`Fail QC. Reason: ${excel_data['exp_group']} RFU 門檻篩選後範圍內 Peak 數目小於要求的： ${peak_number_check};`);
-    QC_Failed = true;
+    dataQC_status = 'fail-the-criteria';
+    QC_information.push(`${excel_data['exp_group']} RFU 門檻篩選後範圍內 Peak 數目小於要求的： ${peak_number_check};`);
   }
   for (let column in peak_table['table_array']) {
     peak_table['table_array'][column] = filteredRFU_arrayData_index.map(index => peak_table['table_array'][column][index]);
@@ -332,6 +345,7 @@ function findPeak(excel_data, peak_range, rfu_threshold, select_number, peak_num
       selected_table.data[i] = transposed_sorted_table.data[i];
     }
   }
+
   const output_table = tableParser.reverseTransposeArrayTable(selected_table);
   return output_table;
 }
@@ -359,17 +373,18 @@ function summaryPeakData(fileCollection){
       const select_top_peak_number = 1;
       const smn1_ic_peak_table = findPeak(
         fileCollection[data],
-        LAB_DEFINED.RANGE.SMA1_IC_SIZE_RANGE,
+        LAB_DEFINED.RANGE.SMN1_IC_SIZE_RANGE,
         LAB_DEFINED.RFU_THRESHOLD.SMN1_IC,
         select_top_peak_number,
-        LAB_DEFINED.PEAK_NUMBER_CHECK.SMA1
+        LAB_DEFINED.PEAK_NUMBER_CHECK.SMN1
       );
+      const usePeakNumCheck = fileCollection[data]['type'] == 'standard' ? LAB_DEFINED.PEAK_NUMBER_CHECK.SMN1 :0;
       const smn1_tg_peak_table = findPeak(
         fileCollection[data],
-        LAB_DEFINED.RANGE.SMA1_TG_SIZE_RANGE,
+        LAB_DEFINED.RANGE.SMN1_TG_SIZE_RANGE,
         LAB_DEFINED.RFU_THRESHOLD.SMN1_TG,
         select_top_peak_number,
-        LAB_DEFINED.PEAK_NUMBER_CHECK.SMA1
+        usePeakNumCheck
       );
       const sma1_peak_data = new SMA_peak_data(
         fileCollection[data]['exp_group'],
@@ -380,79 +395,33 @@ function summaryPeakData(fileCollection){
         fileCollection[data]['sample_name']
       );
       SMA1_data[fileCollection[data]['exp_group']] = sma1_peak_data;
-    } else if (fileCollection[data]['label'] === 'smn2') {
-      const select_top_peak_number = 2;
-      const smn2_peaks_table = findPeak(
+    }
+    else if (fileCollection[data]['label'] === 'smn2') {
+      const select_top_peak_number = 1;
+      const smn2_ic_peak_table = findPeak(
         fileCollection[data],
-        LAB_DEFINED.RANGE.SMA2_SEARCH_RANGE,
-        LAB_DEFINED.RFU_THRESHOLD.SMN2,
+        LAB_DEFINED.RANGE.SMN2_IC_SIZE_RANGE,
+        LAB_DEFINED.RFU_THRESHOLD.SMN2_IC,
         select_top_peak_number,
-        LAB_DEFINED.PEAK_NUMBER_CHECK.SMA2
+        LAB_DEFINED.PEAK_NUMBER_CHECK.SMN2
       );
-
-      if (smn2_peaks_table['No'].length >= 2) {
-        // 將表格以 bp 排序
-        const bp_sorted_sma2_peak_table = tableParser.sortTable(smn2_peaks_table, 'bp', 'table_index', false);
-        const transposed_bp_sorted_sma2_peak_table = tableParser.transposeArrayTable(bp_sorted_sma2_peak_table);
-
-        // 比較 target peak 和 internal control peak 的大小，如果 target peak 較大，則選擇較大的 peak 為 target peak, 反之則選擇較小的 peak 為 target peak
-        const selected_sma2_peak_table = new tableParser.TransposedTable(transposed_bp_sorted_sma2_peak_table.column_names, {});
-        if (LAB_DEFINED.PEAK_SIZE.SMA2_TG > LAB_DEFINED.PEAK_SIZE.SMA2_IC) {
-          selected_sma2_peak_table.data[0] = transposed_bp_sorted_sma2_peak_table.data[0];
-        } else {
-          selected_sma2_peak_table.data[0] = transposed_bp_sorted_sma2_peak_table.data[1];
-        }
-        const sma2_target_peak_data = tableParser.reverseTransposeArrayTable(selected_sma2_peak_table);
-
-        // 比較 target peak 和 internal control peak 的大小，如果 target peak 較大，則選擇較小的 peak 為 internal control peak, 反之則選擇較大的 peak 為 internal control peak
-        const selected_internal_control_peak_table = new tableParser.TransposedTable(transposed_bp_sorted_sma2_peak_table.column_names, {});
-        if (LAB_DEFINED.PEAK_SIZE.SMA2_TG > LAB_DEFINED.PEAK_SIZE.SMA2_IC) {
-          selected_internal_control_peak_table.data[0] = transposed_bp_sorted_sma2_peak_table.data[1];
-        } else {
-          selected_internal_control_peak_table.data[0] = transposed_bp_sorted_sma2_peak_table.data[0];
-        }
-        const sma2_internal_control_peak_data = tableParser.reverseTransposeArrayTable(selected_internal_control_peak_table);
-
-        const sma2_peak_data = new SMA_peak_data(
-          fileCollection[data]['exp_group'],
-          fileCollection[data]['label'],
-          fileCollection[data]['type'],
-          tableParser.getSingelValueTable(sma2_internal_control_peak_data),
-          tableParser.getSingelValueTable(sma2_target_peak_data),
-          fileCollection[data]['sample_name']
-        );
-        SMA2_data[fileCollection[data]['exp_group']] = sma2_peak_data;
-      } else {
-        const sma2_peak_data = new SMA_peak_data(
-          fileCollection[data]['exp_group'],
-          fileCollection[data]['label'],
-          fileCollection[data]['type'],
-          {'ic_peak_table':{
-            No: undefined,
-            'Time\n(sec.)': undefined,
-            RFU: undefined,
-            PeakArea: undefined,
-            bp: undefined,
-            'Concn.\n(ng/µl)': undefined,
-            'PeakStart\n(sec.)': undefined,
-            'PeakEnd\n(sec.)': undefined,
-            table_index: undefined
-          }},
-          {'tg_peak_table':{
-            No: undefined,
-            'Time\n(sec.)': undefined,
-            RFU: undefined,
-            PeakArea: undefined,
-            bp: undefined,
-            'Concn.\n(ng/µl)': undefined,
-            'PeakStart\n(sec.)': undefined,
-            'PeakEnd\n(sec.)': undefined,
-            table_index: undefined
-          }},
-          fileCollection[data]['sample_name']
-        );
-        SMA2_data[fileCollection[data]['exp_group']] = sma2_peak_data;
-      }
+      const usePeakNumCheck = fileCollection[data]['type'] == 'standard' ? LAB_DEFINED.PEAK_NUMBER_CHECK.SMN2 :0;
+      const smn2_tg_peak_table = findPeak(
+        fileCollection[data],
+        LAB_DEFINED.RANGE.SMN2_TG_SIZE_RANGE,
+        LAB_DEFINED.RFU_THRESHOLD.SMN2_TG,
+        select_top_peak_number,
+        usePeakNumCheck
+      );
+      const sma2_peak_data = new SMA_peak_data(
+        fileCollection[data]['exp_group'],
+        fileCollection[data]['label'],
+        fileCollection[data]['type'],
+        tableParser.getSingelValueTable(smn2_ic_peak_table),
+        tableParser.getSingelValueTable(smn2_tg_peak_table),
+        fileCollection[data]['sample_name']
+      );
+      SMA2_data[fileCollection[data]['exp_group']] = sma2_peak_data;
     }
   }
 
@@ -463,35 +432,13 @@ function summaryPeakData(fileCollection){
   return data_summary;
 }
 
-// QC: 檢查 smn1 和 smn2 的 RFU 數值是否線性成長
-function checkRFULinearity(SMA1_STD1, SMA1_STD2, SMA1_STD3, SMA2_STD1, SMA2_STD2, SMA2_STD3){
-  if (typeof SMA1_STD1 === 'undefined' ||
-      typeof SMA1_STD2 === 'undefined' ||
-      typeof SMA1_STD3 === 'undefined' ||
-      typeof SMA2_STD1 === 'undefined' ||
-      typeof SMA2_STD2 === 'undefined' ||
-      typeof SMA2_STD3 === 'undefined') {
-    return;
-  }
-  if (!(SMA1_STD3.diff > SMA1_STD2.diff) || !(SMA1_STD2.diff > SMA1_STD1.diff)) {
-    logger.warn('smn1 RFU is not linear growth.');
-    dataQC_status = 'Fail the criteria';
-    QC_information.push('Fail QC. Reason: smn1 RFU is not linear growth;');
-  }
-  if (!(SMA2_STD3.diff > SMA2_STD2.diff) || !(SMA2_STD2.diff > SMA2_STD1.diff)) {
-    logger.warn('smn2 RFU is not linear growth.');
-    dataQC_status = 'Fail the criteria';
-    QC_information.push('Fail QC. Reason: smn2 RFU is not linear growth;');
-  }
-}
-
 /* Step3: 計算RFU數值 */
 function summaryRFUData(data_summary, parameters){
   class experiment_result{
     constructor(internal_control, target, type, smn, sample_name){
       this.internal_control = parseFloat(internal_control);
       this.target = parseFloat(target);
-      this.diff = parseFloat((this.target / this.internal_control).toFixed(3));
+      this.diff = parseFloat((this.target / this.internal_control).toFixed(1));
       this.type = type;
       this.smn = smn;
       this.sample_name = sample_name;
@@ -500,31 +447,18 @@ function summaryRFUData(data_summary, parameters){
   // 擷取出計算需要的數值
   const SMA1_STD1 = new experiment_result(data_summary['sma1_peak_data']['smn1_std1']['ic_peak_table']['RFU'], data_summary['sma1_peak_data']['smn1_std1']['tg_peak_table']['RFU'], 'standard', 'smn1', data_summary['sma1_peak_data']['smn1_std1']['sample_name']);
   const SMA1_STD2 = new experiment_result(data_summary['sma1_peak_data']['smn1_std2']['ic_peak_table']['RFU'], data_summary['sma1_peak_data']['smn1_std2']['tg_peak_table']['RFU'], 'standard', 'smn1', data_summary['sma1_peak_data']['smn1_std2']['sample_name']);
-  const SMA1_STD3 = new experiment_result(data_summary['sma1_peak_data']['smn1_std3']['ic_peak_table']['RFU'], data_summary['sma1_peak_data']['smn1_std3']['tg_peak_table']['RFU'], 'standard', 'smn1', data_summary['sma1_peak_data']['smn1_std3']['sample_name']);
   const SMA2_STD1 = new experiment_result(data_summary['sma2_peak_data']['smn2_std1']['ic_peak_table']['RFU'], data_summary['sma2_peak_data']['smn2_std1']['tg_peak_table']['RFU'], 'standard', 'smn2', data_summary['sma2_peak_data']['smn2_std1']['sample_name']);
   const SMA2_STD2 = new experiment_result(data_summary['sma2_peak_data']['smn2_std2']['ic_peak_table']['RFU'], data_summary['sma2_peak_data']['smn2_std2']['tg_peak_table']['RFU'], 'standard', 'smn2', data_summary['sma2_peak_data']['smn2_std2']['sample_name']);
-  const SMA2_STD3 = new experiment_result(data_summary['sma2_peak_data']['smn2_std3']['ic_peak_table']['RFU'], data_summary['sma2_peak_data']['smn2_std3']['tg_peak_table']['RFU'], 'standard', 'smn2', data_summary['sma2_peak_data']['smn2_std3']['sample_name']);
 
   // DataMatrix
   const data_matrix = {
     'smn1': {
       'std1': SMA1_STD1,
-      'std2': SMA1_STD2,
-      'std3': SMA1_STD3
+      'std2': SMA1_STD2
     },
     'smn2': {
       'std1': SMA2_STD1,
-      'std2': SMA2_STD2,
-      'std3': SMA2_STD3
-    }
-  }
-
-  // QC: 檢查 smn1 和 smn2 的 RFU 數值是否線性成長
-  if (typeof parameters === 'undefined' || !parameters) {
-    checkRFULinearity(SMA1_STD1, SMA1_STD2, SMA1_STD3, SMA2_STD1, SMA2_STD2, SMA2_STD3);
-  } else {
-    if (typeof parameters.new_rfu_data === 'undefined' || !parameters.new_rfu_data) {
-      checkRFULinearity(SMA1_STD1, SMA1_STD2, SMA1_STD3, SMA2_STD1, SMA2_STD2, SMA2_STD3);
+      'std2': SMA2_STD2
     }
   }
 
@@ -557,72 +491,48 @@ function summaryRFUData(data_summary, parameters){
   return data_matrix;
 }
 
-/* 判斷數值範圍 */
-function determineRange(data_matrix){
-
-  // SMA1 (2:2 和 1:1 的差值) & (3:3 和 2:2 的差值)
-  const sma1_diff_2_1 = data_matrix['smn1']['std2']['diff'] - data_matrix['smn1']['std1']['diff'];
-  const sma1_diff_3_2 = data_matrix['smn1']['std3']['diff'] - data_matrix['smn1']['std2']['diff'];
-
-  // SMA2 (2:1 和 1:1 的差值) & (3:3 和 2:2 的差值)
-  const sma2_diff_2_1 = data_matrix['smn2']['std2']['diff'] - data_matrix['smn2']['std1']['diff'];
-  const sma2_diff_3_2 = data_matrix['smn2']['std3']['diff'] - data_matrix['smn2']['std2']['diff'];
-
-  // 計算判斷間距
-  const SMA1_D1 = data_matrix['smn1']['std1']['diff']
-  const SMA1_RANGES = {
-    '1': {min: SMA1_D1, max: SMA1_D1 + sma1_diff_2_1/2},
-    '2': {min: SMA1_D1 + sma1_diff_2_1/2, max: SMA1_D1 + sma1_diff_2_1/2 + sma1_diff_3_2/2},
-    '3': {min: SMA1_D1 + sma1_diff_2_1/2 + sma1_diff_3_2/2, max: Infinity},
-  }
-  const SMA2_D1 = data_matrix['smn2']['std1']['diff']
-  const SMA2_RANGES = {
-    '1': {min: SMA2_D1, max: SMA2_D1 + sma2_diff_2_1/2},
-    '2': {min: SMA2_D1 + sma2_diff_2_1/2, max: SMA2_D1 + sma2_diff_2_1/2 + sma2_diff_3_2/2},
-    '3': {min: SMA2_D1 + sma2_diff_2_1/2 + sma2_diff_3_2/2, max: Infinity},
-  }
-  const SMA_RANGES = {
-    'smn1': SMA1_RANGES,
-    'smn2': SMA2_RANGES,
-  }
-
-  return SMA_RANGES;
-}
-
 /* Step4: 判斷 sample 的 copy number */
 function determineCopyNumber(rfu_data, range_data){
-  const smn1_range_1_copy = range_data['smn1']['1'];
-  const smn1_range_2_copy = range_data['smn1']['2'];
-  const smn1_range_3_copy = range_data['smn1']['3'];
-  const smn2_range_1_copy = range_data['smn2']['1'];
-  const smn2_range_2_copy = range_data['smn2']['2'];
-  const smn2_range_3_copy = range_data['smn2']['3'];
 
   for (let group in rfu_data) {
-    for (let std in rfu_data[group]) {
-      if (rfu_data[group][std]['smn'] === 'smn1') {
-        if (rfu_data[group][std]['diff'] >= smn1_range_3_copy['min']){
-          rfu_data[group][std]['copy_number'] = 3;
-        } else if (rfu_data[group][std]['diff'] >= smn1_range_2_copy['min']){
-          rfu_data[group][std]['copy_number'] = 2;
-        } else if (rfu_data[group][std]['diff'] >= smn1_range_1_copy['min']){
-          rfu_data[group][std]['copy_number'] = 1;
-        } else{
-          rfu_data[group][std]['copy_number'] = 0;
+    for (let sample in rfu_data[group]) {
+      if (sample === 'std1') {
+        rfu_data[group][sample]['copy_number'] = 1;
+      }
+      else if (sample === 'std2') {
+        rfu_data[group][sample]['copy_number'] = 2;
+      }
+      else {
+        // 如果 interal control 不是 Null, Targer = Null 時將它改成 0
+        if (rfu_data[group][sample]['internal_control'] > 0 && isNaN(rfu_data[group][sample]['target'])) {
+          rfu_data[group][sample]['target'] = 0;
+          rfu_data[group][sample]['diff'] = 0;
         }
-      } else if (rfu_data[group][std]['smn'] === 'smn2') {
-        if (rfu_data[group][std]['diff'] >= smn2_range_3_copy['min']){
-          rfu_data[group][std]['copy_number'] = 3;
-        } else if (rfu_data[group][std]['diff'] >= smn2_range_2_copy['min']){
-          rfu_data[group][std]['copy_number'] = 2;
-        } else if (rfu_data[group][std]['diff'] >= smn2_range_1_copy['min']){
-          rfu_data[group][std]['copy_number'] = 1;
-        } else{
-          rfu_data[group][std]['copy_number'] = 0;
+        let copy_number = 0;
+        const ratio_to_SC1 = (rfu_data[group][sample]['diff'] / rfu_data[group]['std1']['diff']).toFixed(1);
+        if (ratio_to_SC1 < range_data[group].copy_1.min) {
+          copy_number = 0;
         }
+        else if (range_data[group].copy_1.min <= ratio_to_SC1 && ratio_to_SC1 <= range_data[group].copy_1.max) {
+          copy_number = 1;
+        }
+        else if (range_data[group].copy_2.min <= ratio_to_SC1 && ratio_to_SC1 <= range_data[group].copy_2.max) {
+          copy_number = 2;
+        }
+        else if (ratio_to_SC1 > range_data[group].copy_2.max)  {
+          copy_number = 3;
+        }
+        else if (ratio_to_SC1 == range_data[group].invalid) {
+          copy_number = 'Invalid';
+        }
+        else {
+          copy_number = 'Invalid';
+        }
+        rfu_data[group][sample]['copy_number'] = copy_number;
       }
     }
   }
+
   return rfu_data;
 }
 
@@ -650,15 +560,6 @@ function handleOutput_rfu(dataObj){
   }
 }
 
-/* 處理 Range 輸出 */
-function handleOutput_range(dataObj){
-  for (let label in dataObj) {
-    for (let copy_number in dataObj[label]) {
-      dataObj[label][copy_number]['label'] = label;
-      dataObj[label][copy_number]['copy_number'] = copy_number;
-    }
-  }
-}
 /* 處理輸出 JSON 檔案 */
 function jsonOutput(outputPath, output) {
   //Output result to JSON file
@@ -692,104 +593,95 @@ const qcAssessment = (control_id, dataQC_status, information) => {
 
 /* 主程式 */
 function mainRun(
-  smn1_std1, smn1_std2, smn1_std3,
-  smn2_std1, smn2_std2, smn2_std3,
-  smn1_sample, smn2_sample, parameters
+  smn1_std1, smn1_std2,
+  smn2_std1, smn2_std2,
+  smn1_sample, smn2_sample
 ) {
 
-  if (parameters) {
-    if (parameters.new_peak_condition) {
-      LAB_DEFINED = parameters.new_peak_condition
-      logger.info('use new_peak_condition:')
-    } else{
-      LAB_DEFINED = default_LAB_DEFINED
-      logger.info('use default_LAB_DEFINED:')
-    }
-  } else {
-    LAB_DEFINED = default_LAB_DEFINED
-    logger.info('use default_LAB_DEFINED:')
-  }
+  // 設定實驗室定義參數
+  LAB_DEFINED = default_LAB_DEFINED
+  logger.info('use default_LAB_DEFINED:')
+  logger.info(LAB_DEFINED);
 
   // 初始化共用變數
   dataQC_status = ''
   QC_information = []
-  QC_Failed = false;
 
   // 搜集 control_id
   const control_id = collectControlId([
-    smn1_std1, smn1_std2, smn1_std3,
-    smn2_std1, smn2_std2, smn2_std3
+    smn1_std1, smn1_std2,
+    smn2_std1, smn2_std2,
   ]);
 
   // Step1: 準備輸入檔案
   const preparedInputFile = prepareInputFile(
-    smn1_std1, smn1_std2, smn1_std3,
-    smn2_std1, smn2_std2, smn2_std3,
-    smn1_sample, smn2_sample);
+    smn1_std1, smn1_std2,
+    smn2_std1, smn2_std2,
+    smn1_sample, smn2_sample
+  );
 
   // Step2: 統整 peak 資料
   const peak_data = summaryPeakData(preparedInputFile);
 
-  // 如果 QC 失敗, 直接回傳
-  if (QC_Failed) {
-    const output = {
-      'config': {
-        'nucleus': "v3.9.2",
-        'logger': [JSON_DIR, JSON_OUTPUT],
-      },
-      'result':{
-        'peak_data': {},
-        'range': {},
-        'labeled_rfu_data': {},
-        'source_data': preparedInputFile,
-      }
-    }
-    output['qc'] = qcAssessment(control_id, dataQC_status, QC_information);
-
-    return output;
+  // 如果 std 的 ic 或 tg peak 資料為空,則 QC 失敗
+  if (
+    (Object.keys(peak_data['sma1_peak_data']['smn1_std1']['ic_peak_table']).length === 0 || Object.keys(peak_data['sma1_peak_data']['smn1_std1']['tg_peak_table']).length === 0) ||
+    (Object.keys(peak_data['sma1_peak_data']['smn1_std2']['ic_peak_table']).length === 0 || Object.keys(peak_data['sma1_peak_data']['smn1_std2']['tg_peak_table']).length === 0) ||
+    (Object.keys(peak_data['sma2_peak_data']['smn2_std1']['ic_peak_table']).length === 0 || Object.keys(peak_data['sma2_peak_data']['smn2_std1']['tg_peak_table']).length === 0) ||
+    (Object.keys(peak_data['sma2_peak_data']['smn2_std2']['ic_peak_table']).length === 0 || Object.keys(peak_data['sma2_peak_data']['smn2_std2']['tg_peak_table']).length === 0)
+  ) {
+    dataQC_status = 'fail-the-criteria';
+    QC_information.push(`Standard 的 ic 或 tg peak 資料為空.`);
   }
 
   // Step3: 計算 RFU 數值
-  let rfu_data = summaryRFUData(peak_data, parameters);
+  let rfu_data = summaryRFUData(peak_data, LAB_DEFINED);
 
-  if (parameters) {
-    if (parameters.new_rfu_data && Object.keys(parameters.new_rfu_data.smn1).length > 0 && Object.keys(parameters.new_rfu_data.smn2).length > 0) {
-      rfu_data = parameters.new_rfu_data
-      logger.info('use new_rfu_data:')
-      checkRFULinearity(
-        rfu_data['smn1']['std1'],
-        rfu_data['smn1']['std2'],
-        rfu_data['smn1']['std3'],
-        rfu_data['smn2']['std1'],
-        rfu_data['smn2']['std2'],
-        rfu_data['smn2']['std3']
-      );
-    } else {
-      logger.info('no new_rfu_data')
-    }
+  // smn1 如果 SC2 除以 SC1 的值小於等於 1.3, 則 QC 失敗
+  const sc1_sc2_ratio = (rfu_data['smn1']['std2']['diff'] / rfu_data['smn1']['std1']['diff']).toFixed(1);
+  if (sc1_sc2_ratio <= LAB_DEFINED.SC_DIFF_RATIO.SMN1) {
+    dataQC_status = 'fail-the-criteria';
+    QC_information.push(`Standard smn1 的 SC2 除以 SC1 的值小於等於閾值.`);
+  }
+  // smn2 如果 SC2 除以 SC1 的值小於 1.3, 則 QC 失敗
+  const sc2_sc1_ratio = (rfu_data['smn2']['std2']['diff'] / rfu_data['smn2']['std1']['diff']).toFixed(1);
+  if (sc2_sc1_ratio < LAB_DEFINED.SC_DIFF_RATIO.SMN2) {
+    dataQC_status = 'fail-the-criteria';
+    QC_information.push(`Standard smn2 的 SC2 除以 SC1 的值小於閾值.`);
   }
 
   // Step4: 判斷 sample 的 copy number
-  const range = determineRange(rfu_data); // 判斷範圍
-  const labeled_rfu_data = determineCopyNumber(rfu_data, range);
+  let labeled_rfu_data = determineCopyNumber(rfu_data, LAB_DEFINED.COPY_NUMBER_RANGE);
+
+  // 整理 sample result
+  const sample_list = Object.values(labeled_rfu_data.smn1).filter(sample => sample.type === 'sample').map(sample => sample.sample_name);
+  let sample_result = {};
+  for (let sample of sample_list) {
+    const smn1_num = Object.values(labeled_rfu_data.smn1).find(rfu => rfu.sample_name === sample);
+    const smn2_num = Object.values(labeled_rfu_data.smn2).find(rfu => rfu.sample_name === sample);
+    sample_result[sample] = {
+      'smn1': smn1_num.copy_number,
+      'smn2': smn2_num.copy_number,
+      'result_str': `${smn1_num.copy_number}:${smn2_num.copy_number}`,
+    };
+  }
 
   // Step5: 合併全部結果, 輸出必要的資訊
   const output = {
     'config': {
-      'nucleus': "v3.9.2",
+      'nucleus': "v3.9.4",
       'logger': [JSON_DIR, JSON_OUTPUT],
     },
     'result':{
       'peak_data': peak_data,
-      'range': range,
       'labeled_rfu_data': labeled_rfu_data,
+      'sample_result': sample_result,
       'source_data': preparedInputFile,
     }
   }
 
   // 處理輸出
   handleOutput_peaks(output['result']['peak_data']);
-  handleOutput_range(output['result']['range']);
   handleOutput_rfu(output['result']['labeled_rfu_data']);
   if (dataQC_status === '') { dataQC_status = 'meet-the-criteria'; }
   output['qc'] = qcAssessment(control_id, dataQC_status, QC_information);
@@ -801,20 +693,22 @@ function mainRun(
 // Run by called
 module.exports = {
   runSmaV4: function (
-    smn1_std1, smn1_std2, smn1_std3,
-    smn2_std1, smn2_std2, smn2_std3,
-    smn1_sample, smn2_sample, parameters
+    smn1_std1, smn1_std2,
+    smn2_std1, smn2_std2,
+    smn1_sample, smn2_sample
   ) {
     logger.info("******* Running for SMA v4 main process *******");
     try {
       // 執行主程式
       let output = mainRun(
-        smn1_std1, smn1_std2, smn1_std3,
-        smn2_std1, smn2_std2, smn2_std3,
-        smn1_sample, smn2_sample, parameters
+        smn1_std1, smn1_std2,
+        smn2_std1, smn2_std2,
+        smn1_sample, smn2_sample
       );
       // 將主程式輸出寫入 JSON 檔案
-      jsonOutput(JSON_OUTPUT, output);
+      if (output) {
+        jsonOutput(JSON_OUTPUT, output);
+      }
       // 回傳主程式輸出
       return output;
     } catch (error) {
@@ -831,12 +725,9 @@ if (require.main === module) {
   module.exports.runSmaV4(
     argv.smn1_std1,
     argv.smn1_std2,
-    argv.smn1_std3,
     argv.smn2_std1,
     argv.smn2_std2,
-    argv.smn2_std3,
     argv.smn1_sample,
-    argv.smn2_sample,
-    argv.parameters
+    argv.smn2_sample
   );
 }
