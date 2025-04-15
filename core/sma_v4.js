@@ -40,8 +40,10 @@ const default_LAB_DEFINED = {
     SMN2: 1
   },
   SC_DIFF_RATIO: {
-    SMN1: 1.3,
-    SMN2: 1.3
+    SMN1_MIN: 1.3,
+    SMN1_MAX: 2.5,
+    SMN2_MIN: 1.3,
+    SMN2_MAX: 2.5,
   },
   PEAK_SIZE:{
     SMN1_IC: 229,
@@ -438,7 +440,7 @@ function summaryRFUData(data_summary, parameters){
     constructor(internal_control, target, type, smn, sample_name){
       this.internal_control = parseFloat(internal_control);
       this.target = parseFloat(target);
-      this.diff = parseFloat((this.target / this.internal_control).toFixed(1));
+      this.diff = parseFloat((this.target / this.internal_control).toFixed(2));
       this.type = type;
       this.smn = smn;
       this.sample_name = sample_name;
@@ -509,20 +511,20 @@ function determineCopyNumber(rfu_data, range_data){
           rfu_data[group][sample]['diff'] = 0;
         }
         let copy_number = 0;
-        const ratio_to_SC1 = (rfu_data[group][sample]['diff'] / rfu_data[group]['std1']['diff']).toFixed(1);
-        if (ratio_to_SC1 < range_data[group].copy_1.min) {
+        const ratio_to_SC1 = parseFloat((rfu_data[group][sample]['diff'] / rfu_data[group]['std1']['diff']).toFixed(2));
+        if (ratio_to_SC1 < parseFloat(range_data[group].copy_1.min)) {
           copy_number = 0;
         }
-        else if (range_data[group].copy_1.min <= ratio_to_SC1 && ratio_to_SC1 <= range_data[group].copy_1.max) {
+        else if (parseFloat(range_data[group].copy_1.min) <= ratio_to_SC1 && ratio_to_SC1 <= parseFloat(range_data[group].invalid)) {
           copy_number = 1;
         }
-        else if (range_data[group].copy_2.min <= ratio_to_SC1 && ratio_to_SC1 <= range_data[group].copy_2.max) {
+        else if (parseFloat(range_data[group].copy_2.min) <= ratio_to_SC1 && ratio_to_SC1 <= parseFloat(range_data[group].copy_2.max)) {
           copy_number = 2;
         }
-        else if (ratio_to_SC1 > range_data[group].copy_2.max)  {
+        else if (ratio_to_SC1 > parseFloat(range_data[group].copy_2.max))  {
           copy_number = 3;
         }
-        else if (ratio_to_SC1 == range_data[group].invalid) {
+        else if (ratio_to_SC1 === parseFloat(range_data[group].invalid)) {
           copy_number = 'Invalid';
         }
         else {
@@ -638,14 +640,14 @@ function mainRun(
   let rfu_data = summaryRFUData(peak_data, LAB_DEFINED);
 
   // smn1 如果 SC2 除以 SC1 的值小於等於 1.3, 則 QC 失敗
-  const sc1_sc2_ratio = (rfu_data['smn1']['std2']['diff'] / rfu_data['smn1']['std1']['diff']).toFixed(1);
-  if (sc1_sc2_ratio <= LAB_DEFINED.SC_DIFF_RATIO.SMN1) {
+  const sc1_sc2_ratio = (rfu_data['smn1']['std2']['diff'] / rfu_data['smn1']['std1']['diff']).toFixed(2);
+  if (sc1_sc2_ratio <= LAB_DEFINED.SC_DIFF_RATIO.SMN1_MIN || sc1_sc2_ratio >= LAB_DEFINED.SC_DIFF_RATIO.SMN1_MAX) {
     dataQC_status = 'fail-the-criteria';
     QC_information.push(`Standard smn1 的 SC2 除以 SC1 的值小於等於閾值.`);
   }
   // smn2 如果 SC2 除以 SC1 的值小於 1.3, 則 QC 失敗
-  const sc2_sc1_ratio = (rfu_data['smn2']['std2']['diff'] / rfu_data['smn2']['std1']['diff']).toFixed(1);
-  if (sc2_sc1_ratio < LAB_DEFINED.SC_DIFF_RATIO.SMN2) {
+  const sc2_sc1_ratio = (rfu_data['smn2']['std2']['diff'] / rfu_data['smn2']['std1']['diff']).toFixed(2);
+  if (sc2_sc1_ratio < LAB_DEFINED.SC_DIFF_RATIO.SMN2_MIN || sc2_sc1_ratio >= LAB_DEFINED.SC_DIFF_RATIO.SMN2_MAX) {
     dataQC_status = 'fail-the-criteria';
     QC_information.push(`Standard smn2 的 SC2 除以 SC1 的值小於閾值.`);
   }
