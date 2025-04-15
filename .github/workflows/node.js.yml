@@ -31,7 +31,7 @@ jobs:
       - name: Get npm cache directory
         id: npm-cache
         run: |
-          echo "DIR=$(npm config get cache)" >> $GITHUB_OUTPUT
+          echo "::set-output name=DIR::$(npm config get cache)"
       - uses: actions/cache@v3
         with:
           path: ${{ steps.npm-cache.outputs.DIR }}
